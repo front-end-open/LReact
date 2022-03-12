@@ -1,0 +1,18 @@
+{
+  "name": "LReact",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/http-server -p 3500 -c-1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
