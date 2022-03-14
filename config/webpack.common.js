@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-15 01:17:39
+ * @LastEditTime: 2022-03-15 01:28:15
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -87,6 +87,15 @@ module.exports = function (options) {
           ],
         },
       ],
+    },
+    resolve: {
+      modules: [paths.appNodeModules],
+      extensions: [".js", ".jsx", ".css"],
+      alias: {
+        moment$: "moment/moment.js",
+        "@src": paths.appSrc,
+        "@public": paths.appPublic,
+      },
     },
     devServer: {},
     plugins: [
