@@ -4,7 +4,9 @@
   "description": "reactjs custom cli",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config config/webpack.prod.js",
+    "start": "node server",
+    "dev": "webpack-dev-server --config config/webpack.dev.js"
   },
   "keywords": [
     "reactjs",
@@ -17,10 +19,15 @@
     "babel-loader": "^8.2.2",
     "chalk": "^4.1.0",
     "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^5.1.0",
+    "css-loader": "^5.2.7",
     "html-webpack-plugin": "^5.2.0",
     "ip": "^1.1.5",
+    "node-sass": "^7.0.1",
+    "postcss": "^8.4.8",
+    "postcss-loader": "^6.2.1",
+    "postcss-preset-env": "^7.4.2",
     "progress-bar-webpack-plugin": "^2.1.0",
+    "sass-loader": "^12.6.0",
     "speed-measure-webpack-plugin": "^1.4.2",
     "style-loader": "^2.0.0",
     "webpack": "^5.24.2",
