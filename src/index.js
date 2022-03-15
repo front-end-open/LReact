@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-15 01:31:46
+ * @LastEditTime: 2022-03-16 00:33:35
  * @Description: 应用打包入口文件
  * @Date: 2022-03-15 00:37:34
  * @Author: wangshan
@@ -7,16 +7,15 @@
  */
 import React from "react";
 import ReactDOM from "react-dom";
-import "@src/style.scss";
-import npm from "@public/images/pic.jpeg";
+import App from "@/App.js";
+import { BrowserRouter } from "react-router-dom";
+import "@/style/global/index.scss";
 
-const App = () => {
-  return (
-    <div>
-      <h1>Webpack CLI</h1>
-      <img src={npm}></img>
-    </div>
-  );
-};
-
-ReactDOM.render(<App />, document.querySelector("#root"));
+ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.querySelector("#root")
+);
