@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-16 23:58:28
+ * @LastEditTime: 2022-03-17 00:27:35
  * @Description: jsx元素渲染
  * @Date: 2022-03-16 01:17:38
  * @Author: wangshan
@@ -52,7 +52,7 @@ _store: {validated: false}}`}</code>
       <div>
         <h3 className="tag">更新已渲染元素</h3>
         <p>更新已渲染的元素，可以单独创建新的元素并从新加入到视图</p>
-        <div id="timeClock">{clock()}</div>
+        <div id="timeClock">react采用局部更新的方式，来更新视图</div>
       </div>
     </div>
   );

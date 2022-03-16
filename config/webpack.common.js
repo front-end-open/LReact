@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-15 23:37:41
+ * @LastEditTime: 2022-03-17 00:38:38
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -31,7 +31,7 @@ module.exports = function (options) {
         {
           oneOf: [
             {
-              test: /\.js$/,
+              test: [/\.js$/, /\.jsx$/],
               exclude: /node_modules/,
               use: [
                 {

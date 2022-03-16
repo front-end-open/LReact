@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-16 01:21:09
+ * @LastEditTime: 2022-03-17 00:45:17
  * @Description:
  * @Date: 2022-03-15 23:30:51
  * @Author: wangshan
@@ -11,6 +11,7 @@ import Capter from "@/components/Capter/index.js";
 import { Routes, Route } from "react-router-dom";
 import JSX from "@/views/capter01/JSXBase.js";
 import RenderDom from "@/views/capter02/RnderDom.js";
+import routers from "@/router/index.js";
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -20,6 +21,10 @@ export default class App extends React.Component {
         {
           path: "/renderDom",
           name: ' "元素渲染"',
+        },
+        {
+          path: "/components",
+          name: "组件-props",
         },
       ],
     };
@@ -34,8 +39,9 @@ export default class App extends React.Component {
 
         <div className="right-content">
           <Routes>
-            <Route path="/" element={<JSX />} />
-            <Route path="/renderDom" element={<RenderDom />} />
+            {routers.map((v, i) => (
+              <Route path={v.path} key={i} element={<v.component />}></Route>
+            ))}
           </Routes>
         </div>
       </div>
