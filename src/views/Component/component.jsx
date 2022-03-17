@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-17 01:21:48
+ * @LastEditTime: 2022-03-17 23:51:14
  * @Description:
  * @Date: 2022-03-17 00:36:16
  * @Author: wangshan
@@ -8,7 +8,11 @@
 import React from "react";
 import PrintMsg from "./components/PrintMsg.jsx";
 import ClassPrintMsg from "./components/ClassPrintMsg.jsx";
+import Comment from "@/components/Comment/index.jsx";
+import comments from "@/db/comment.json";
+
 export default function Component() {
+  console.log(comments);
   return (
     <div>
       <h1>组件-props</h1>
@@ -68,14 +72,23 @@ export default function Component() {
       </div>
       <div>
         <h3 className="tag">props的只读性</h3>
+        <h5>所有 React 组件都必须像纯函数一样保护它们的 props 不被更改。</h5>
         <p>
           {" "}
           组件无论是使用函数声明还是通过 class 声明，都决不能修改自身的 props。
-          <h5>所有 React 组件都必须像纯函数一样保护它们的 props 不被更改。</h5>
-          <p>
-            但是UI是实时变化的组件也需要维护自身的状态去更新视图，需要使用state
-          </p>
         </p>
+        <p>
+          但是UI是实时变化的组件也需要维护自身的状态去更新视图，需要使用state
+        </p>
+      </div>
+      <div>
+        <h3 className="tag">组件提取，抽离复用实践</h3>
+        <p>一个评论组件封装: Avater, UserInfo, CommentConotent</p>
+        <div>
+          {comments.comments.map((v, i) => {
+            return <Comment key={i} commentt={v.commentt} user={v.user} />;
+          })}
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-17 00:45:17
+ * @LastEditTime: 2022-03-18 00:28:16
  * @Description:
  * @Date: 2022-03-15 23:30:51
  * @Author: wangshan
@@ -25,6 +25,10 @@ export default class App extends React.Component {
         {
           path: "/components",
           name: "组件-props",
+        },
+        {
+          path: "/state",
+          name: "组件-state",
         },
       ],
     };

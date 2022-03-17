@@ -1,0 +1,11 @@
+.avater-container {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 5px 0 #c34;
+  & img {
+    width: 100px;
+    height: 100px;
+  }
+}
