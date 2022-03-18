@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-18 00:28:16
+ * @LastEditTime: 2022-03-19 00:22:21
  * @Description:
  * @Date: 2022-03-15 23:30:51
  * @Author: wangshan
@@ -44,7 +44,11 @@ export default class App extends React.Component {
         <div className="right-content">
           <Routes>
             {routers.map((v, i) => (
-              <Route path={v.path} key={i} element={<v.component />}></Route>
+              <Route
+                path={v.path}
+                key={v.path}
+                element={<v.component />}
+              ></Route>
             ))}
           </Routes>
         </div>
