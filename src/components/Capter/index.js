@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-16 01:17:04
+ * @LastEditTime: 2022-03-19 02:42:06
  * @Description:
  * @Date: 2022-03-16 00:03:17
  * @Author: wangshan
@@ -12,7 +12,7 @@ export default function Capter(props) {
     <ul>
       {props.list.map((v, i) => (
         <li key={i}>
-          <Link to={v.path}>{v.name}</Link>
+          <Link to={v.path}>{v.menuname}</Link>
         </li>
       ))}
     </ul>
