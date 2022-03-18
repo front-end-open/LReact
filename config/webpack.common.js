@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-17 00:38:38
+ * @LastEditTime: 2022-03-19 00:10:20
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -12,6 +12,7 @@ const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 const imageInlineSizeLimit = 4 * 1024;
+const webpack = require("webpack");
 
 module.exports = function (options) {
   return {
@@ -102,6 +103,9 @@ module.exports = function (options) {
       new HtmlWebpackPlugin({
         template: "./public/index.html",
       }),
+      new webpack.ProvidePlugin({
+        React: "react", // ['react']    // 全局注入React标识符
+      }), // 注入全局变量插件
       ...options.plugins,
     ],
     stats: options.stats, // 打包日志发生错误和新的编译时输出

@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-18 01:34:55
+ * @LastEditTime: 2022-03-18 23:36:28
  * @Description: 组件State-生命周期
  * @Date: 2022-03-18 00:05:17
  * @Author: wangshan
@@ -7,6 +7,7 @@
  */
 import React from "react";
 import Clock from "./components/Clock/index.jsx";
+import Advance from "./Advance/index.js";
 export default function CState() {
   return (
     <div>
@@ -155,12 +156,15 @@ export default function CState() {
           <Clock />
         </div>
       </div>
-
       <div>
         <h3 className="tag">正确使用State</h3>
       </div>
       <div>
         <h3 className="tag">数据是向下流动的</h3>
+      </div>
+      <div>
+        <h3 className="tag">setState原理</h3>
+        <Advance />
       </div>
     </div>
   );
