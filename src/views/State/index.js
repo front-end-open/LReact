@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-18 23:36:28
+ * @LastEditTime: 2022-03-19 01:57:01
  * @Description: 组件State-生命周期
  * @Date: 2022-03-18 00:05:17
  * @Author: wangshan
@@ -165,6 +165,7 @@ export default function CState() {
       <div>
         <h3 className="tag">setState原理</h3>
         <Advance />
+        <p>setState的更新是异步的所以，如果需要调用下一次更新后的state，需要在调用setState传入一个函数，而不是一个对象。</p>
       </div>
     </div>
   );
