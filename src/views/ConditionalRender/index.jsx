@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-20 02:34:33
+ * @LastEditTime: 2022-03-20 02:41:17
  * @Description: 条件渲染
  * @Date: 2022-03-19 22:37:33
  * @Author: wangshan
@@ -79,6 +79,10 @@ export default class ConditionRender extends React.Component {
         </div>
         <div>
           <h3 className="tip-success"> 阻止渲染 </h3>
+          <p>
+            在极少数情况下，你可能希望能隐藏组件，即使它已经被其他组件渲染。若要完成此操作，你可以让
+            render 方法直接返回 null，而不进行任何渲染。
+          </p>
         </div>
       </div>
     );
