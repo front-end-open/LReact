@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-20 02:38:32
+ * @LastEditTime: 2022-03-20 02:44:22
  * @Description:
  * @Date: 2022-03-20 02:38:31
  * @Author: wangshan
@@ -18,6 +18,10 @@ class Page extends React.Component {
       showWarning: !state.showWarning,
     }));
   }
+  componentDidMount() {}
+  componentWillUnmount() {}
+  componentDidUpdate() {}
+  componentDidCatch() {}
 
   render() {
     return (

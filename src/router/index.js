@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-19 23:59:38
+ * @LastEditTime: 2022-03-20 02:58:04
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -13,7 +13,7 @@ import State from "@/views/State/index.js";
 import NotFund from "@/views//common/404.jsx";
 import EventHandle from "@/views/Event/index.jsx";
 import ConditionRender from "@/views/ConditionalRender/index.jsx";
-
+import ListRender from "@/views/ListRender/index.jsx";
 let router = [
   {
     path: "/",
@@ -55,6 +55,12 @@ let router = [
         name: "ConditionRender",
         menuname: "条件渲染",
         component: ConditionRender,
+      },
+      {
+        path: "/listrender",
+        name: "ListRender",
+        menuname: "列表渲染",
+        component: ListRender,
       },
     ],
   },
