@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-20 01:58:55
+ * @LastEditTime: 2022-03-20 02:34:33
  * @Description: 条件渲染
  * @Date: 2022-03-19 22:37:33
  * @Author: wangshan
@@ -7,6 +7,8 @@
  */
 import Greeting from "./components/Greeting.jsx";
 import LoginControl from "./components/LoginControl.jsx";
+import MailBox from "./components/Mailbox.jsx";
+import { message } from "@/db/comment.json";
 export default class ConditionRender extends React.Component {
   render() {
     return (
@@ -35,6 +37,48 @@ export default class ConditionRender extends React.Component {
           <div>
             <LoginControl />
           </div>
+        </div>
+
+        <div>
+          <h3 className="tip-success">简化条件渲染if切换方式</h3>
+          <h4>与运算符 &&</h4>
+          <code className="tag">{` <div>
+      <div>
+        {" "}
+        {props.unreadmessage.length > 0 && (
+          <h3>you haved {props.unreadmessage.length} unread</h3>
+        )}
+      </div>
+      <div className="content">
+        {props.unreadmessage.map((v) => {
+          return (
+            <ul>
+              <li>
+                <h5>{v.title}</h5>
+                <p>{v.date}</p>
+              </li>
+            </ul>
+          );
+        })}
+      </div>
+    </div>`}</code>
+          <p className="tip-success">注册MailBox</p>
+          <div>
+            <MailBox unreadmessage={message} />
+          </div>
+        </div>
+        <div>
+          <h3 className="tip-success">三目运算符</h3>
+          <code className="tag">{`<div>
+      The user is <b>{isLoggedIn ? 'currently' : 'not'}</b> logged in.
+    </div>`}</code>
+          <h3 className="tip-error">注册reactDom</h3>
+          <div>
+            The user is <b>{true ? "currently" : "not"}</b> logged in.
+          </div>
+        </div>
+        <div>
+          <h3 className="tip-success"> 阻止渲染 </h3>
         </div>
       </div>
     );
