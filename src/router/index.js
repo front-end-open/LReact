@@ -1,17 +1,19 @@
 /*
- * @LastEditTime: 2022-03-19 02:28:16
+ * @LastEditTime: 2022-03-19 23:59:38
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
  * @LastEditors: wangshan
  */
+import App from "@/App.js";
 import JSX from "@/views/capter01/JSXBase.js";
 import RenderDom from "@/views/capter02/RnderDom.js";
 import Componet from "@/views/Component/component.jsx";
 import State from "@/views/State/index.js";
 import NotFund from "@/views//common/404.jsx";
 import EventHandle from "@/views/Event/index.jsx";
-import App from "@/App.js";
+import ConditionRender from "@/views/ConditionalRender/index.jsx";
+
 let router = [
   {
     path: "/",
@@ -47,6 +49,12 @@ let router = [
         name: "EventHandle",
         menuname: "事件处理",
         component: EventHandle,
+      },
+      {
+        path: "/conditionrender",
+        name: "ConditionRender",
+        menuname: "条件渲染",
+        component: ConditionRender,
       },
     ],
   },
