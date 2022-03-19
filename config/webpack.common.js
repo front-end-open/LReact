@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-19 00:10:20
+ * @LastEditTime: 2022-03-19 23:51:33
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -13,6 +13,7 @@ const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 const imageInlineSizeLimit = 4 * 1024;
 const webpack = require("webpack");
+const path = require("path");
 
 module.exports = function (options) {
   return {
@@ -44,6 +45,7 @@ module.exports = function (options) {
               ],
             },
             {
+              // .css文件处理
               test: cssRegex,
               exclude: cssModuleRegex,
               use: [
@@ -58,6 +60,7 @@ module.exports = function (options) {
               ],
             },
             {
+              // .scss/sass文件处理
               test: sassRegex,
               exclude: sassModuleRegex,
               use: [
@@ -69,7 +72,16 @@ module.exports = function (options) {
                   },
                 },
                 "postcss-loader",
-                "sass-loader",
+                "sass-loader", //
+                {
+                  loader: "sass-resources-loader", // 配置scss全局模块注入
+                  options: {
+                    resources: [
+                      // 配置全局注入文件
+                      path.resolve(paths.appSrc, "style/varibale.scss"),
+                    ],
+                  },
+                },
               ],
             },
             {
