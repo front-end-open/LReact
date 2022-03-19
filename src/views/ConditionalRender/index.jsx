@@ -1,11 +1,12 @@
 /*
- * @LastEditTime: 2022-03-20 01:15:17
+ * @LastEditTime: 2022-03-20 01:58:55
  * @Description: 条件渲染
  * @Date: 2022-03-19 22:37:33
  * @Author: wangshan
  * @LastEditors: wangshan
  */
 import Greeting from "./components/Greeting.jsx";
+import LoginControl from "./components/LoginControl.jsx";
 export default class ConditionRender extends React.Component {
   render() {
     return (
@@ -27,6 +28,13 @@ export default class ConditionRender extends React.Component {
         </div>
         <div>
           <h3 className="tip-success">元素变量</h3>
+          <p className="tip-error">
+            元素的切换通过变量存储，简化jsx直接return的写法。并且显示隐藏切换时，并不会影响其他组件渲染
+          </p>
+          <h4> 注册组件-LoginControl</h4>
+          <div>
+            <LoginControl />
+          </div>
         </div>
       </div>
     );
