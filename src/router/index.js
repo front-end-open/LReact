@@ -12,7 +12,7 @@ import Componet from "@/views/Component/component.jsx";
 import State from "@/views/State/index.js";
 import NotFund from "@/views//common/404.jsx";
 import EventHandle from "@/views/Event/index.jsx";
-import ConditionRender from "@/views/ConditionalRender/index.jsx";
+import ConditionRender from "@/views/capter02/ConditionalRender/index.jsx";
 import ListRender from "@/views/ListRender/index.jsx";
 import UseForm from "@/views/UseForm";
 let router = [

@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-21 00:46:07
+ * @LastEditTime: 2022-03-21 01:01:15
  * @Description: 表单
  * @Date: 2022-03-20 18:57:27
  * @Author: wangshan
@@ -7,7 +7,8 @@
  */
 
 import NormalForm from "./components/NormalForm";
-
+import EassayForm from "./components/EassyForm";
+import FlavorForm from "./components/FlavorForm";
 export default function () {
   return (
     <div>
@@ -58,7 +59,33 @@ export default function () {
         <textarea id="" cols="30" rows="10">
           hell
         </textarea>
-        <p className="tag">设置React受控textarea组件</p>
+        <p className="tag">注册React受控textarea组件</p>
+        <div>
+          <EassayForm />
+        </div>
+      </div>
+      <div>
+        <h3 className="tip-success">Select下拉列表-受控组件</h3>
+        <p className="tip-error">
+          {" "}
+          请注意，由于 selected 属性的缘故，椰子选项默认被选中。React 并不会使用
+          selected 属性，而是在根 select 标签上使用 value
+          属性。这在受控组件中更便捷，因为您只需要在根标签中更新它。例如：
+        </p>
+        <div>
+          <h3 className="tip-success">注册FlavorForm</h3>
+          <div>
+            <FlavorForm />
+          </div>
+        </div>
+        <p className="tag">
+          {`总的来说，这使得 <input type="text">, <textarea> 和 <select> 之类的标签都非常相似—它们都接受一个 value 属性，你可以使用它来实现受控组件。
+
+`}{" "}
+        </p>
+        <p className="tip-error">
+          可以将数组传递到 value 属性中，以支持在 select 标签中选择多个选项：
+        </p>
       </div>
     </div>
   );
