@@ -1,0 +1,10 @@
+.item-container {
+  & li {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  & h4 {
+    margin-right: 24px;
+  }
+}
