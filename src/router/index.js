@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-20 02:58:04
+ * @LastEditTime: 2022-03-20 19:01:03
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -14,6 +14,7 @@ import NotFund from "@/views//common/404.jsx";
 import EventHandle from "@/views/Event/index.jsx";
 import ConditionRender from "@/views/ConditionalRender/index.jsx";
 import ListRender from "@/views/ListRender/index.jsx";
+import UseForm from "@/views/UseForm";
 let router = [
   {
     path: "/",
@@ -61,6 +62,12 @@ let router = [
         name: "ListRender",
         menuname: "列表渲染",
         component: ListRender,
+      },
+      {
+        path: "/useform",
+        name: "UseForm",
+        menuname: "表单",
+        component: UseForm,
       },
     ],
   },
