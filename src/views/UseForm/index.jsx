@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-21 22:51:03
+ * @LastEditTime: 2022-03-21 23:28:36
  * @Description: 表单
  * @Date: 2022-03-20 18:57:27
  * @Author: wangshan
@@ -104,6 +104,46 @@ export default function () {
           <div>
             <Reservation />
           </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 className="tip-success">受控输入空值</h3>
+        <p className="tag">
+          测试:
+          在input元素上设置value，并设置初始值。这里的解释应该是，元素或者说组件并不是受控组件，因并未使react的state作为唯一的数据源，而直接指定了value的值
+        </p>
+        <div>
+          <input type="text" value="这里不能修改" />
+        </div>
+        <p className="tag">
+          在受控组件input上指定value的props为undefined 或者 null, 将会变成
+          可编辑
+        </p>
+        <div>
+          <input type="text" value={undefined} />
+          <p className="tip-error">
+            小提示：
+            对于受控组件的可编辑，建议为value指定undefined，虽然可以使用null。但是会导致编译期异常警告
+            ！！！
+          </p>
+        </div>
+      </div>
+      <div>
+        <h3 className="tip-sucdess">受控组件替代品</h3>
+        <p>
+          受控组件将会变得麻烦，因为需要为每一个输入控件指定state和编写handler函数，如果需要为一个非React应用，做react架构
+          升级。那么将会变得很麻烦。这个可以使用非受控组件作为替代方案。
+        </p>
+      </div>
+      <div>
+        <h3 className="tip-success">完美表单受控组件的解决方案---Formik</h3>
+        <div className="tag">
+          <h4>特性:</h4>
+          <ul>
+            <li>验证</li>
+            <li>表单字段追踪，和表单提交</li>
+          </ul>
         </div>
       </div>
     </div>
