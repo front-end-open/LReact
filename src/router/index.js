@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-21 23:30:50
+ * @LastEditTime: 2022-03-22 00:40:46
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -16,6 +16,8 @@ import ConditionRender from "@/views/capter02/ConditionalRender/index.jsx";
 import ListRender from "@/views/ListRender/index.jsx";
 import UseForm from "@/views/UseForm";
 import UnControlComponent from "@/views/unControlComponent";
+import StateBoost from "@/views/StateBoost";
+
 let router = [
   {
     path: "/",
@@ -75,6 +77,12 @@ let router = [
         name: "uncontrolComponent",
         menuname: "非受控组件",
         component: UnControlComponent,
+      },
+      {
+        path: "/stateboost",
+        name: "StateBoost",
+        menuname: "状态提升",
+        component: StateBoost,
       },
     ],
   },
