@@ -1,0 +1,7 @@
+.user-container {
+  display: flex;
+  align-items: center;
+  & .name-style {
+    margin-left: 12px;
+  }
+}
