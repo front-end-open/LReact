@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-21 01:01:15
+ * @LastEditTime: 2022-03-21 22:51:03
  * @Description: 表单
  * @Date: 2022-03-20 18:57:27
  * @Author: wangshan
@@ -9,6 +9,7 @@
 import NormalForm from "./components/NormalForm";
 import EassayForm from "./components/EassyForm";
 import FlavorForm from "./components/FlavorForm";
+import Reservation from "./components/Reservation";
 export default function () {
   return (
     <div>
@@ -56,9 +57,9 @@ export default function () {
         <p className="tag">
           在html中，textarea通过子元素指定内部值; 而在React中通过value设置
         </p>
-        <textarea id="" cols="30" rows="10">
+        {/* <textarea id="" cols="30" rows="10">
           hell
-        </textarea>
+        </textarea> */}
         <p className="tag">注册React受控textarea组件</p>
         <div>
           <EassayForm />
@@ -86,6 +87,24 @@ export default function () {
         <p className="tip-error">
           可以将数组传递到 value 属性中，以支持在 select 标签中选择多个选项：
         </p>
+      </div>
+      <div>
+        <h3 className="tip-success">
+          非受控组件文件
+          Input-type-file类型，其value值，无法通过react-state设置和获取。因为其value是只读的，所以作为非受控组件
+        </h3>
+      </div>
+      <div>
+        <h3 className="tip-success">处理多个输入</h3>
+        <p>
+          存在form表单的多个input的数据存取时，需要通过事件函数的event.target.name来获取
+        </p>
+        <div>
+          <h3 className="tip-error">绑定Reservation组件</h3>
+          <div>
+            <Reservation />
+          </div>
+        </div>
       </div>
     </div>
   );
