@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-20 19:01:03
+ * @LastEditTime: 2022-03-21 23:30:50
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -15,6 +15,7 @@ import EventHandle from "@/views/Event/index.jsx";
 import ConditionRender from "@/views/capter02/ConditionalRender/index.jsx";
 import ListRender from "@/views/ListRender/index.jsx";
 import UseForm from "@/views/UseForm";
+import UnControlComponent from "@/views/unControlComponent";
 let router = [
   {
     path: "/",
@@ -68,6 +69,12 @@ let router = [
         name: "UseForm",
         menuname: "表单",
         component: UseForm,
+      },
+      {
+        path: "/uncontrol",
+        name: "uncontrolComponent",
+        menuname: "非受控组件",
+        component: UnControlComponent,
       },
     ],
   },
