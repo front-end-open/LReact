@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-22 00:40:46
+ * @LastEditTime: 2022-03-23 00:03:55
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -17,6 +17,7 @@ import ListRender from "@/views/ListRender/index.jsx";
 import UseForm from "@/views/UseForm";
 import UnControlComponent from "@/views/unControlComponent";
 import StateBoost from "@/views/StateBoost";
+import Combination from "@/views/combination";
 
 let router = [
   {
@@ -83,6 +84,12 @@ let router = [
         name: "StateBoost",
         menuname: "状态提升",
         component: StateBoost,
+      },
+      {
+        path: "/combination",
+        name: "Combination",
+        menuname: "组合",
+        component: Combination,
       },
     ],
   },
