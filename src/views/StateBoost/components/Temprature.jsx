@@ -1,6 +1,6 @@
 /*
- * @LastEditTime: 2022-03-22 01:04:47
- * @Description: 输入华氏温度
+ * @LastEditTime: 2022-03-22 22:49:49
+ * @Description:温度类别
  * @Date: 2022-03-22 01:04:46
  * @Author: wangshan
  * @LastEditors: wangshan
@@ -13,15 +13,14 @@ export default class TemperatureInput extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.state = { temperature: "" };
   }
 
   handleChange(e) {
-    this.setState({ temperature: e.target.value });
+    this.props.onTemperatureChange(e.target.value);
   }
 
   render() {
-    const temperature = this.state.temperature;
+    const temperature = this.props.temperature; // 提升状态temprature到Caculator的state管理，用于同步两个输入框的数据.
     const scale = this.props.scale;
     return (
       <fieldset>
