@@ -1,11 +1,12 @@
 /*
- * @LastEditTime: 2022-03-23 00:41:49
- * @Description: 对话框
+ * @LastEditTime: 2022-03-23 00:50:07
+ * @Description: 注册组件
  * @Date: 2022-03-23 00:41:49
  * @Author: wangshan
  * @LastEditors: wangshan
  */
-function Dialog(props) {
+import FancyBorder from "../FancyBorder";
+export default function Dialog(props) {
   return (
     <FancyBorder color="blue">
       <h1 className="Dialog-title">{props.title}</h1>
@@ -13,33 +14,4 @@ function Dialog(props) {
       {props.children}
     </FancyBorder>
   );
-}
-
-class SignUpDialog extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSignUp = this.handleSignUp.bind(this);
-    this.state = { login: "" };
-  }
-
-  render() {
-    return (
-      <Dialog
-        title="Mars Exploration Program"
-        message="How should we refer to you?"
-      >
-        <input value={this.state.login} onChange={this.handleChange} />
-        <button onClick={this.handleSignUp}>Sign Me Up!</button>
-      </Dialog>
-    );
-  }
-
-  handleChange(e) {
-    this.setState({ login: e.target.value });
-  }
-
-  handleSignUp() {
-    alert(`Welcome aboard, ${this.state.login}!`);
-  }
 }

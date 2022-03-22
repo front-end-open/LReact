@@ -1,10 +1,11 @@
 /*
- * @LastEditTime: 2022-03-23 00:34:50
+ * @LastEditTime: 2022-03-23 00:53:19
  * @Description: 组合
  * @Date: 2022-03-22 23:40:00
  * @Author: wangshan
  * @LastEditors: wangshan
  */
+import { SignUpDialog } from "@/components";
 import Modal from "@/components/Modal";
 import FancyBorder from "./components/FancyBorder";
 export default class Combination extends React.Component {
@@ -98,6 +99,21 @@ export default class Combination extends React.Component {
                 </Modal>
                 <button onClick={this.handleOpen}>open</button>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 className="tip-success">特殊关系</h3>
+          <p className="tag">
+            一些公用组件，比如Dialog就是webComeDialog一般组件的上层，可以通过组合实现这些一般组件{" "}
+          </p>
+
+          <div>
+            <h3 className="tip-success">注册SignDialog组件</h3>
+            <p className="tag">组合组件实现一般组件</p>
+            <div>
+              <SignUpDialog />
             </div>
           </div>
         </div>
