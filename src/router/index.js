@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-23 00:03:55
+ * @LastEditTime: 2022-03-23 01:06:23
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -18,6 +18,7 @@ import UseForm from "@/views/UseForm";
 import UnControlComponent from "@/views/unControlComponent";
 import StateBoost from "@/views/StateBoost";
 import Combination from "@/views/combination";
+import BasicPracice from "@/views/BasicPractice";
 
 let router = [
   {
@@ -90,6 +91,13 @@ let router = [
         name: "Combination",
         menuname: "组合",
         component: Combination,
+      },
+
+      {
+        path: "/basic",
+        name: "BasicPractice",
+        menuname: "基本综合-搜索列表",
+        component: BasicPracice,
       },
     ],
   },

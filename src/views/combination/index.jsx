@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-23 00:53:19
+ * @LastEditTime: 2022-03-23 01:00:41
  * @Description: 组合
  * @Date: 2022-03-22 23:40:00
  * @Author: wangshan
@@ -116,6 +116,15 @@ export default class Combination extends React.Component {
               <SignUpDialog />
             </div>
           </div>
+        </div>
+
+        <div>
+          <h3 className="tip-error">继承复用</h3>
+          <p className="tag">
+            组件间复用非 UI 的功能，将其提取为一个单独的 JavaScript
+            模块，如函数、对象或者类。组件可以直接引入（import）而无需通过
+            extend 继承它们
+          </p>
         </div>
       </div>
     );
