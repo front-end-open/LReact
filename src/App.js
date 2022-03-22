@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-19 02:42:57
+ * @LastEditTime: 2022-03-23 01:17:16
  * @Description:
  * @Date: 2022-03-15 23:30:51
  * @Author: wangshan
@@ -13,7 +13,7 @@ export default class App extends React.Component {
     return (
       <div id="app">
         <div className="sider-wrap">
-          <h1>Reactjs基础</h1>
+          <h1>React高级</h1>
           <Capter list={this.props.children} />
         </div>
 

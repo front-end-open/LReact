@@ -1,11 +1,13 @@
 /*
- * @LastEditTime: 2022-03-22 01:24:26
+ * @LastEditTime: 2022-03-23 01:16:09
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
  * @LastEditors: wangshan
  */
+
 import App from "@/App.js";
+import NotFund from "@/views/common/index.jsx";
 let router = [
   {
     path: "/",
