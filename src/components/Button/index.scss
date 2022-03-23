@@ -1,0 +1,14 @@
+.base {
+  width: 200px;
+  height: 100px;
+  outline: none;
+  border-radius: 24px;
+  &.dark {
+    background-color: black;
+    color: #fff;
+  }
+  &.light {
+    background-color: #ccc;
+    color: #000;
+  }
+}
