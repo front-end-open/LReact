@@ -11,3 +11,17 @@
   padding: 24px;
   background-color: $error-color;
 }
+
+.line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.more-line {
+  display: -webkit-box;
+  overflow: hidden;
+  box-orient: vertical;
+  line-clamp: 3;
+  box-sizing: border-box;
+}
