@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-24 01:10:58
+ * @LastEditTime: 2022-03-24 01:35:52
  * @Description: Context-组件间公共状态
  * @Date: 2022-03-23 22:45:21
  * @Author: wangshan
@@ -123,6 +123,135 @@ export default function GlobalContext() {
       </div>
       <div>
         <h3 className="primary">Context-Api</h3>
+        <div>
+          <h4 className="tip-content">React.createContext</h4>
+          <div>
+            <p className="tip-error">
+              const MyContext = React.createContext(defaultValue); // 默认值
+            </p>
+            <p className="tip-content">
+              创建一个 Context 对象。当 React 渲染一个订阅了这个 Context
+              对象的组件，这个组件会从组件树中离自身最近的那个匹配的 Provider
+              中读取到当前的 context 值。只有当组件所处的树中没有匹配到 Provider
+              时，其 defaultValue 参数才会生效。这有助于在不使用 Provider
+              包装组件的情况下对组件进行测试。注意：将 undefined 传递给 Provider
+              的 value 时，消费组件的 defaultValue 不会生效。
+            </p>
+          </div>
+        </div>
+
+        <h3 className="primary">Context.Provider</h3>
+        <div>
+          <p className="tip-error">{`<MyContext.Provider value={/* 某个值 */}>`}</p>
+
+          <p className="tip-content">
+            {" "}
+            每个 Context 对象都会返回一个 Provider React
+            组件，它允许消费组件订阅 context 的变化。
+          </p>
+          <p className="tip-content">
+            Provider 接收一个 value 属性，传递给消费组件。一个 Provider
+            可以和多个消费组件有对应关系。多个 Provider
+            也可以嵌套使用，里层的会覆盖外层的数据。{" "}
+          </p>
+          <p className="tip-content">
+            {" "}
+            当 Provider 的 value
+            值发生变化时，它内部的所有消费组件都会重新渲染。Provider 及其内部
+            consumer 组件都不受制于 shouldComponentUpdate 函数，因此当 consumer
+            组件在其祖先组件退出更新的情况下也能更新。
+          </p>
+          <p className="tip-error">
+            通过新旧值检测来确定变化，使用了与 Object.is 相同的算法。
+          </p>
+          <p className="tip-error">
+            当传递对象给 value 时，检测变化的方式会导致一些问题：详见注意事项。{" "}
+          </p>
+        </div>
+
+        <h3 className="tip-success">Class.contextType</h3>
+        <div>
+          <div className="tip-content">
+            <code>{`class MyClass extends React.Component {
+  componentDidMount() {
+    let value = this.context;
+    /* 在组件挂载完成后，使用 MyContext 组件的值来执行一些有副作用的操作 */
+  }
+  componentDidUpdate() {
+    let value = this.context;
+    /* ... */
+  }
+  componentWillUnmount() {
+    let value = this.context;
+    /* ... */
+  }
+  render() {
+    let value = this.context;
+    /* 基于 MyContext 组件的值进行渲染 */
+  }
+}
+MyClass.contextType = MyContext;`}</code>
+          </div>
+          <p className="tip-error">
+            {" "}
+            挂载在 class 上的 contextType 属性可以赋值为由 React.createContext()
+            创建的 Context 对象。此属性可以让你使用 this.context 来获取最近
+            Context 上的值。你可以在任何生命周期中访问到它，包括 render 函数中。
+          </p>
+          <p className="tip-success">
+            只通过该 API 订阅单一 context。订阅多个，阅读使用多个 Context 章节
+            使用实验性的 public class fields 语法，你可以使用 static
+            这个类属性来初始化你的 contextType。
+          </p>
+          <div className="tip-content">
+            <code>{`class MyClass extends React.Component {
+  static contextType = MyContext;
+  render() {
+    let value = this.context;
+    /* 基于这个值进行渲染工作 */
+  }
+}
+`}</code>
+          </div>
+
+          <h3 className="tip-success">Context.Consumer</h3>
+          <div className="tip-content">
+            <code>{`<MyContext.Consumer>
+  {value => /* 基于 context 值进行渲染*/}
+</MyContext.Consumer>`}</code>
+          </div>
+          <p className="tip-error">
+            一个 React 组件可以订阅 context
+            的变更，此组件可以让你在函数式组件中可以订阅 context。
+          </p>
+          <p className="tip-success">
+            这种方法需要一个函数作为子元素（function as a
+            child）。这个函数接收当前的 context 值，并返回一个 React
+            节点。传递给函数的 value 值等价于组件树上方离这个 context 最近的
+            Provider 提供的 value 值。如果没有对应的 Provider，value
+            参数等同于传递给 createContext() 的 defaultValue。
+          </p>
+        </div>
+
+        <h3 className="tip-success">Context.displayName</h3>
+        <p className="primary">
+          context 对象接受一个名为 displayName 的 property，类型为字符串。React
+          DevTools 使用该字符串来确定 context 要显示的内容。
+        </p>
+
+        <p>下述组件在 DevTools 中将显示为 MyDisplayName：</p>
+        <div className="tip-content">
+          <code>
+            {`const MyContext = React.createContext(/* some value */);
+MyContext.displayName = 'MyDisplayName';
+
+<MyContext.Provider> // "MyDisplayName.Provider" 在 DevTools 中
+<MyContext.Consumer> // "MyDisplayName.Consumer" 在 DevTools 中`}
+          </code>
+        </div>
+      </div>
+      <div>
+        <h3 className="tip-success">Render props-函数作为子元素</h3>{" "}
       </div>
       <div>
         <h3 className="tip-success">Render-props</h3>
