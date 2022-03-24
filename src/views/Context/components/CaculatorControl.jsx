@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-25 01:28:27
+ * @LastEditTime: 2022-03-25 01:31:52
  * @Description:
  * @Date: 2022-03-25 00:01:44
  * @Author: wangshan
@@ -69,9 +69,9 @@ export default class CaculatorControl extends React.Component {
           <p>{this.state.counter}</p>
         </div>
         {/* 高阶组件render-props */}
-        <CaculatorContext.Provider value={this.state.data}>
+        {/* <CaculatorContext.Provider value={this.state.data}>
           <CommonCaculators />
-        </CaculatorContext.Provider>
+        </CaculatorContext.Provider> */}
       </div>
     );
   }
