@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-25 00:38:59
+ * @LastEditTime: 2022-03-25 01:24:05
  * @Description: Context-组件间公共状态
  * @Date: 2022-03-23 22:45:21
  * @Author: wangshan
@@ -11,6 +11,7 @@ import Toolbar from "@/components/Button/Toolbar";
 import SayHello from "./components/SayHello";
 import { MessageContext } from "@/context/MessageContext";
 import CaculatorControl from "./components/CaculatorControl";
+
 export default function GlobalContext() {
   return (
     <div>
@@ -336,6 +337,12 @@ MyClass.contextType = MyContext;`}</code>
             Provider 提供的 value 值。如果没有对应的 Provider，value
             参数等同于传递给 createContext() 的 defaultValue。
           </p>
+
+          <div>
+            <h3 className="tip-success">
+              这里使用render-props,适用于函数式组件作为订阅context的方式
+            </h3>
+          </div>
         </div>
 
         <h3 className="tip-success">Context.displayName</h3>
