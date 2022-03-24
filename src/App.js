@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-23 23:02:42
+ * @LastEditTime: 2022-03-24 22:48:22
  * @Description:
  * @Date: 2022-03-15 23:30:51
  * @Author: wangshan
@@ -8,6 +8,7 @@
 import "@/style/global/App.scss";
 import Capter from "@/components/Capter/index.js";
 import { Outlet } from "react-router-dom";
+
 export default class App extends React.Component {
   render() {
     return (
