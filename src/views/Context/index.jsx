@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-24 01:35:52
+ * @LastEditTime: 2022-03-25 00:38:59
  * @Description: Context-组件间公共状态
  * @Date: 2022-03-23 22:45:21
  * @Author: wangshan
@@ -8,6 +8,9 @@
 import "./index.scss";
 import { ThemeContext } from "@/context";
 import Toolbar from "@/components/Button/Toolbar";
+import SayHello from "./components/SayHello";
+import { MessageContext } from "@/context/MessageContext";
+import CaculatorControl from "./components/CaculatorControl";
 export default function GlobalContext() {
   return (
     <div>
@@ -138,6 +141,29 @@ export default function GlobalContext() {
               的 value 时，消费组件的 defaultValue 不会生效。
             </p>
           </div>
+
+          <div className="tip-success">
+            <h3>createContenxt-api使用</h3>
+
+            <div>
+              <h3>注册SayHello组件</h3>
+              <div>
+                <SayHello />
+              </div>
+              <p className="tip-error">
+                由于SayHello不包含Provider,最终的结果就是SayHello组件对Context状态引用的就是默认值。即创建Context时，指定的默认值参。
+              </p>
+              <div>
+                <h3>现在使用为SayHello提供Provider，并提供vlaue</h3>
+                <div>
+                  {/* 传递undefined不生效 */}
+                  <MessageContext.Provider value={{}}>
+                    <SayHello></SayHello>
+                  </MessageContext.Provider>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <h3 className="primary">Context.Provider</h3>
@@ -167,6 +193,85 @@ export default function GlobalContext() {
           <p className="tip-error">
             当传递对象给 value 时，检测变化的方式会导致一些问题：详见注意事项。{" "}
           </p>
+
+          <div>
+            <h3 className="tip-success">使用Provider</h3>
+
+            <div>
+              <MessageContext.Provider value={{ content: "outContext" }}>
+                <MessageContext.Provider
+                  value={{
+                    forMan: "test",
+                    content: "多个Provider嵌套使用-innerContext",
+                    date: new Date().toLocaleDateString(),
+                  }}
+                >
+                  <SayHello />
+                </MessageContext.Provider>
+              </MessageContext.Provider>
+            </div>
+          </div>
+
+          <div className="primary">
+            <p className="tip-error">
+              因为 context 会使用参考标识（reference
+              identity）来决定何时进行渲染，这里可能会有一些陷阱，当 provider
+              的父组件进行重渲染时，可能会在 consumers
+              组件中触发意外的渲染。举个例子，当每一次 Provider
+              重渲染时，以下的代码会重渲染所有下面的 consumers 组件，因为 value
+              属性总是被赋值为新的对象
+            </p>
+            <div className="tip-content">
+              <code>
+                {" "}
+                {`class App extends React.Component {
+  render() {
+    return (
+      <MyContext.Provider value={{something: 'something'}}>
+        <Toolbar />
+      </MyContext.Provider>
+    );
+  }
+}`}
+              </code>
+            </div>
+
+            <p className="tip-success">
+              为了防止这种情况，将 value 状态提升到父节点的 state 里：
+            </p>
+
+            <div className="tip-content">
+              <code>{`class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: {something: 'something'},
+    };
+  }
+
+  render() {
+    return (
+      <Provider value={this.state.value}>
+        <Toolbar />
+      </Provider>
+    );
+  }
+}`}</code>
+            </div>
+
+            <div>
+              <h3 className="测试上面的Context变化所导致的视图变化情况"></h3>
+              <div>
+                <h3 className="tip-success"> 注册Caculator</h3>
+                <div>
+                  <CaculatorControl />
+                </div>
+              </div>
+            </div>
+            <p>
+              经过测试如果为Provider的value提供对象字面量，即是将字面量保存provider父组件，仍然会重新渲染
+            </p>
+          </div>
         </div>
 
         <h3 className="tip-success">Class.contextType</h3>
