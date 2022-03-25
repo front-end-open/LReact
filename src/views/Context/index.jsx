@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-26 01:37:32
+ * @LastEditTime: 2022-03-26 02:06:47
  * @Description: Context-组件间公共状态
  * @Date: 2022-03-23 22:45:21
  * @Author: wangshan
@@ -402,6 +402,14 @@ MyContext.displayName = 'MyDisplayName';
             <ThemeInnerApp />
           </div>
         </div>
+      </div>
+      <div>
+        <h3 className="tip-success">消费多个Context</h3>
+        <p className="tip-error">
+          为了确保 context 快速进行重渲染，React 需要使每一个 consumers 组件的
+          context 在组件树中成为一个单独的节点。 如果两个或者更多的 context
+          值经常被一起使用，那你可能要考虑一下另外创建你自己的渲染组件，以提供这些值。
+        </p>
       </div>
     </div>
   );
