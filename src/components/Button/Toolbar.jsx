@@ -1,13 +1,20 @@
 /*
- * @LastEditTime: 2022-03-24 00:05:17
+ * @LastEditTime: 2022-03-26 00:43:51
  * @Description: 一般组件-工具主题按钮
  * @Date: 2022-03-23 23:42:28
  * @Author: wangshan
  * @LastEditors: wangshan
  */
+import Button from "./index";
 import ThemeButton from "./ThemeButton";
-export default function Toolbar() {
-  return <ThemeButton />;
+export default function Toolbar(props) {
+  return (
+    <div>
+      <ThemeButton>
+        <Button innerText="切换主题" onClick={props.checkoutTheme}></Button>
+      </ThemeButton>
+    </div>
+  );
 }
 
 /**

@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-26 00:10:35
+ * @LastEditTime: 2022-03-26 01:06:21
  * @Description: Context-组件间公共状态
  * @Date: 2022-03-23 22:45:21
  * @Author: wangshan
@@ -15,6 +15,7 @@ import CaculatorControl from "./components/CaculatorControl";
 import CommonCaculator from "./components/commonCaculator";
 import { CaculatorContext } from "@/context/Caculator";
 import withComponent from "./components/withCaculator";
+import ThemeApp from "./example/themControl";
 let CommonCaculators = withComponent(CommonCaculator);
 
 export default function GlobalContext() {
@@ -380,6 +381,19 @@ MyContext.displayName = 'MyDisplayName';
       </div>
       <div>
         <h3 className="tip-success">Render-props</h3>
+        <p className="primary">
+          主要用于复用组件代码，对于需要共同state的一批组件；区别组合，组合式避免需要层层传递props的情况
+        </p>
+      </div>
+
+      <div>
+        <h3 className="tip-success">Context使用案列-实现主题切换</h3>
+        <div>
+          <h3 className="primary">注册使用主题切换控件</h3>
+          <div>
+            <ThemeApp />
+          </div>
+        </div>
       </div>
     </div>
   );
