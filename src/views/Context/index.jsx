@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-25 01:24:05
+ * @LastEditTime: 2022-03-26 00:10:35
  * @Description: Context-组件间公共状态
  * @Date: 2022-03-23 22:45:21
  * @Author: wangshan
@@ -11,6 +11,11 @@ import Toolbar from "@/components/Button/Toolbar";
 import SayHello from "./components/SayHello";
 import { MessageContext } from "@/context/MessageContext";
 import CaculatorControl from "./components/CaculatorControl";
+
+import CommonCaculator from "./components/commonCaculator";
+import { CaculatorContext } from "@/context/Caculator";
+import withComponent from "./components/withCaculator";
+let CommonCaculators = withComponent(CommonCaculator);
 
 export default function GlobalContext() {
   return (
@@ -342,6 +347,14 @@ MyClass.contextType = MyContext;`}</code>
             <h3 className="tip-success">
               这里使用render-props,适用于函数式组件作为订阅context的方式
             </h3>
+          </div>
+
+          <h3>注册CommonCaculator</h3>
+          <div>
+            {/* 高阶组件render-props */}
+            <CaculatorContext.Provider value={{ a: 1, b: 1 }}>
+              <CommonCaculators />
+            </CaculatorContext.Provider>
           </div>
         </div>
 

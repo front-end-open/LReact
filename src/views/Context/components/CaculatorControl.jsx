@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-25 01:31:52
+ * @LastEditTime: 2022-03-26 00:06:39
  * @Description:
  * @Date: 2022-03-25 00:01:44
  * @Author: wangshan
@@ -7,9 +7,7 @@
  */
 import { CaculatorContext } from "@/context/Caculator";
 import Caculator from "./Caculator";
-import CommonCaculator from "./commonCaculator";
-import withComponent from "./withCaculator";
-let CommonCaculators = withComponent(CommonCaculator);
+
 export default class CaculatorControl extends React.Component {
   constructor() {
     super();
@@ -68,10 +66,6 @@ export default class CaculatorControl extends React.Component {
           <button onClick={this.handleAnother}>计数</button>
           <p>{this.state.counter}</p>
         </div>
-        {/* 高阶组件render-props */}
-        {/* <CaculatorContext.Provider value={this.state.data}>
-          <CommonCaculators />
-        </CaculatorContext.Provider> */}
       </div>
     );
   }
