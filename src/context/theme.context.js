@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-26 00:25:28
+ * @LastEditTime: 2022-03-26 01:55:45
  * @Description: 主题context
  * @Date: 2022-03-26 00:23:21
  * @Author: wangshan
@@ -17,3 +17,8 @@ export const theme = {
   },
 };
 export const ThemeContextFull = createContext(theme.dark);
+// 确保传递给 createContext 的默认值数据结构是调用的组件（consumers）所能匹配的！
+export const ThemerInner = createContext({
+  theme: theme.dark,
+  toggleTheme: () => {}, // 必须
+});

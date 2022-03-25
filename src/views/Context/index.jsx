@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-26 01:06:21
+ * @LastEditTime: 2022-03-26 01:37:32
  * @Description: Context-组件间公共状态
  * @Date: 2022-03-23 22:45:21
  * @Author: wangshan
@@ -16,6 +16,7 @@ import CommonCaculator from "./components/commonCaculator";
 import { CaculatorContext } from "@/context/Caculator";
 import withComponent from "./components/withCaculator";
 import ThemeApp from "./example/themControl";
+import { ThemeInnerApp } from "./example/Main";
 let CommonCaculators = withComponent(CommonCaculator);
 
 export default function GlobalContext() {
@@ -392,6 +393,13 @@ MyContext.displayName = 'MyDisplayName';
           <h3 className="primary">注册使用主题切换控件</h3>
           <div>
             <ThemeApp />
+          </div>
+        </div>
+
+        <div>
+          <h3 className="tip-success">内部更新Context</h3>
+          <div>
+            <ThemeInnerApp />
           </div>
         </div>
       </div>
