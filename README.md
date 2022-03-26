@@ -4,26 +4,35 @@
 
 ---
 
+## 特性
+
+#### webpack 构建特性
+
+-   配置分离: 针对编译环境进行打包
+-   构建缓存
+-   代码分割
+  > 资源分包处理（目前仅 css 文件进行分包构建）
+
 ## todo
 
-- Context
-- Hook
-- 高阶组件
-- Refs 转发
-- Refs && DOM
-- JSX 深入
-- Protals
-- Fragments
-- Render props
-- 不使用 JSX
-- 不使用 ES6
-- 错误边界
-- Profiler
-- 性能优化
-- 严格模式
-- 静态检查
-- 与三方库结合
-- 协调
+-   Context
+-   Hook
+-   高阶组件
+-   Refs 转发
+-   Refs && DOM
+-   JSX 深入
+-   Protals
+-   Fragments
+-   Render props
+-   不使用 JSX
+-   不使用 ES6
+-   错误边界
+-   Profiler
+-   性能优化
+-   严格模式
+-   静态检查
+-   与三方库结合
+-   协调
 
 持续更新中....
 
@@ -31,7 +40,7 @@
 
 源码下载
 
-- git clone 'xxx' 或者 下载仓库源代码
+-   git clone 'xxx' 或者 下载仓库源代码
 
 依赖安装
 
@@ -49,13 +58,13 @@ $ npm run start
 
 ## 贡献
 
-- pull request
-- fork
-- star
+-   pull request
+-   fork
+-   star
 
 ### 交流
 
-- issue
-- pull request
+-   issue
+-   pull request
 
 > 说明：本 repo 现有配置，用于基本 reatjs 的开发测试无异议，更高需求可自行研究
