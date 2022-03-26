@@ -24,6 +24,7 @@
     "css-loader": "^5.2.7",
     "html-webpack-plugin": "^5.2.0",
     "ip": "^1.1.5",
+    "mini-css-extract-plugin": "^2.6.0",
     "node-sass": "^7.0.1",
     "postcss": "^8.4.8",
     "postcss-loader": "^6.2.1",

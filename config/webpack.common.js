@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-26 23:43:54
+ * @LastEditTime: 2022-03-27 00:49:18
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -14,6 +14,7 @@ const sassModuleRegex = /\.module\.(scss|sass)$/;
 const imageInlineSizeLimit = 4 * 1024;
 const webpack = require("webpack");
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // 提取bundle文件的css文件
 
 module.exports = function (options) {
   return {
@@ -50,7 +51,9 @@ module.exports = function (options) {
               test: cssRegex,
               exclude: cssModuleRegex,
               use: [
-                "style-loader",
+                options.mode === "development"
+                  ? "style-loader"
+                  : MiniCssExtractPlugin.loader,
                 {
                   loader: "css-loader",
                   options: {
@@ -65,7 +68,9 @@ module.exports = function (options) {
               test: sassRegex,
               exclude: sassModuleRegex,
               use: [
-                "style-loader",
+                options.mode === "development"
+                  ? "style-loader"
+                  : MiniCssExtractPlugin.loader,
                 {
                   loader: "css-loader",
                   options: {

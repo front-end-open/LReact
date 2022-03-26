@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-26 02:06:47
+ * @LastEditTime: 2022-03-27 01:03:49
  * @Description: Context-组件间公共状态
  * @Date: 2022-03-23 22:45:21
  * @Author: wangshan
@@ -18,7 +18,7 @@ import withComponent from "./components/withCaculator";
 import ThemeApp from "./example/themControl";
 import { ThemeInnerApp } from "./example/Main";
 let CommonCaculators = withComponent(CommonCaculator);
-
+import "./index.scss";
 export default function GlobalContext() {
   return (
     <div>

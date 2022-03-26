@@ -1,12 +1,12 @@
 /*
- * @LastEditTime: 2022-03-26 23:29:52
+ * @LastEditTime: 2022-03-26 23:56:36
  * @Description: 开发环境配置
  * @Date: 2022-03-15 00:33:30
  * @Author: wangshan
  * @LastEditors: wangshan
  */
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+
 module.exports = require("./webpack.common")({
   mode: "development",
   devtool: "inline-source-map",
