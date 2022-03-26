@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-26 22:51:39
+ * @LastEditTime: 2022-03-26 23:43:54
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -31,6 +31,7 @@ module.exports = function (options) {
     module: {
       rules: [
         {
+          // 优先使用rules列表第一个匹配的loader，提高loader解析效率
           oneOf: [
             {
               test: [/\.js$/, /\.jsx$/],
@@ -84,6 +85,7 @@ module.exports = function (options) {
                 },
               ],
             },
+            // 图片处理
             {
               test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
               type: "asset",
@@ -93,6 +95,7 @@ module.exports = function (options) {
                 },
               },
             },
+            // 字体文件.矢量图像文件处理
             {
               test: /\.(eot|svg|ttf|woff|woff2?)$/,
               type: "asset/resource",
