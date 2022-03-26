@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack --config config/webpack.prod.js",
     "start": "node server",
-    "dev": "webpack-dev-server --config config/webpack.dev.js"
+    "dev": "webpack-dev-server --config config/webpack.dev.js",
+    "generateAnalyzFile": "webpack --profile --json > ./build/stats.json",
+    "analyz": "webpack-bundle-analyzer ./build/stats.json"
   },
   "keywords": [
     "reactjs",
@@ -38,7 +40,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^6.2.2",
-    "sass-resources-loader": "^2.2.4"
+    "sass-resources-loader": "^2.2.4",
+    "webpack-bundle-analyzer": "^4.5.0"
   },
   "author": "PachVerb",
   "license": "MIT"

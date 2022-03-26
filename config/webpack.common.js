@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-25 23:39:31
+ * @LastEditTime: 2022-03-26 22:51:39
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -110,7 +110,7 @@ module.exports = function (options) {
         "@public": paths.appPublic,
       },
     },
-    devtool: "inline-source-map",
+
     devServer: {},
     plugins: [
       new HtmlWebpackPlugin({
