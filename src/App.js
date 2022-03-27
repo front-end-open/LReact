@@ -1,27 +1,27 @@
 /*
- * @LastEditTime: 2022-03-24 22:48:22
+ * @LastEditTime: 2022-03-28 00:59:29
  * @Description:
  * @Date: 2022-03-15 23:30:51
  * @Author: wangshan
  * @LastEditors: wangshan
  */
-import "@/style/global/App.scss";
-import Capter from "@/components/Capter/index.js";
-import { Outlet } from "react-router-dom";
+import '@/style/global/App.scss'
+import Capter from '@/components/Capter/index.js'
+import { Outlet } from 'react-router-dom'
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <div id="app">
-        <div className="sider-wrap">
-          <h1>React高级</h1>
-          <Capter list={this.props.children} />
-        </div>
+    render() {
+        return (
+            <div id="app">
+                <div className="sider-wrap">
+                    <h1>React高级</h1>
+                    <Capter list={this.props.children} />
+                </div>
 
-        <div className="right-content">
-          <Outlet />
-        </div>
-      </div>
-    );
-  }
+                <div className="right-content">
+                    <Outlet />
+                </div>
+            </div>
+        )
+    }
 }
