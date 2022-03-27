@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-27 20:11:04
+ * @LastEditTime: 2022-03-27 23:49:49
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -102,11 +102,13 @@ module.exports = function (options) {
                                 }
                             ]
                         },
+                        // webpack v5无需单独配置资源模块的打包处理loader.内置资源处理规则
                         // 图片处理
                         {
                             test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
                             type: 'asset',
                             parser: {
+                                // 配置图片文件的处理，按限制进行输出bundle或者导出到打包目录
                                 dataUrlCondition: {
                                     maxSize: imageInlineSizeLimit // 4kb
                                 }
@@ -115,7 +117,11 @@ module.exports = function (options) {
                         // 字体文件.矢量图像文件处理
                         {
                             test: /\.(eot|svg|ttf|woff|woff2?)$/,
-                            type: 'asset/resource'
+                            type: 'asset/resource',
+                            generator: {
+                                // 自定义字体文件输出目录
+                                filename: 'assets/[hash][ext][query]'
+                            }
                         }
                     ]
                 }
