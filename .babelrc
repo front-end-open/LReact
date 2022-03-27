@@ -1,0 +1,11 @@
+/*
+ * @LastEditTime: 2022-03-27 20:43:57
+ * @Description:
+ * @Date: 2022-03-27 03:46:14
+ * @Author: wangshan
+ * @LastEditors: wangshan
+ */
+// preset-react内置此插件
+{
+    "plugins": ["@babel/plugin-transform-react-jsx-source"]
+}

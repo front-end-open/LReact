@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-27 19:59:13
+ * @LastEditTime: 2022-03-27 20:36:24
  * @Description: 错误边界
  * @Date: 2022-03-27 19:11:07
  * @Author: wangshan
@@ -34,7 +34,7 @@ export default function (props) {
                     JavaScript 栈外，React 16
                     还提供了组件栈追踪。现在你可以准确地查看发生在组件树内的错误信息：
                 </p>
-                <p className='tip-error'>cr</p>
+                <p className="tip-error">cr</p>
             </div>
         </div>
     )
