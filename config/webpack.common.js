@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-28 00:16:06
+ * @LastEditTime: 2022-03-28 00:19:05
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -46,9 +46,6 @@ module.exports = function (options) {
                                         presets: [
                                             '@babel/preset-env',
                                             '@babel/preset-react'
-                                        ],
-                                        plugins: [
-                                            '@babel/plugin-syntax-dynamic-import'
                                         ]
                                     }
                                 }
