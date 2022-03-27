@@ -1,12 +1,12 @@
 /*
- * @LastEditTime: 2022-03-27 19:38:32
+ * @LastEditTime: 2022-03-27 19:42:51
  * @Description: 错误边界捕获
  * @Date: 2022-03-27 19:37:23
  * @Author: wangshan
  * @LastEditors: wangshan
  */
 
-class ErrorBoundary extends React.Component {
+export default class ErrorBoundary extends React.Component {
     constructor(props) {
         super(props)
         this.state = { error: null, errorInfo: null }
