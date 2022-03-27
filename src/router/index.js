@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-27 19:14:40
+ * @LastEditTime: 2022-03-27 23:57:50
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -39,6 +39,16 @@ let router = [
                 component: AsyncComponent(
                     import(
                         /*webpackChunkName: "ErrorBoundary"*/ '@/views/ErrorBoundaries/index'
+                    )
+                )
+            },
+            {
+                path: '/Assets',
+                name: 'AssetPro',
+                menuname: '资源文件处理',
+                component: AsyncComponent(
+                    import(
+                        /*webpackChunkName: "ErrorBoundary"*/ '@/views/AssetPro/index'
                     )
                 )
             }

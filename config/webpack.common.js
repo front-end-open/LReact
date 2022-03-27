@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-27 23:49:49
+ * @LastEditTime: 2022-03-28 00:16:06
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -23,7 +23,8 @@ module.exports = function (options) {
         output: {
             path: paths.appBuild,
             chunkFilename: 'js/[name].[chunkhash].js', // 设置路由分拆后的chunk名
-            publicPath: '/'
+            publicPath: '/',
+            assetModuleFilename: 'assets/[hash][ext][query]' // 图片资源输出目录, 适用于Asset-Modules Type: (assets | assets/resource)
         },
         cache: {
             // 使用持久化缓存
@@ -117,11 +118,7 @@ module.exports = function (options) {
                         // 字体文件.矢量图像文件处理
                         {
                             test: /\.(eot|svg|ttf|woff|woff2?)$/,
-                            type: 'asset/resource',
-                            generator: {
-                                // 自定义字体文件输出目录
-                                filename: 'assets/[hash][ext][query]'
-                            }
+                            type: 'asset/resource'
                         }
                     ]
                 }
