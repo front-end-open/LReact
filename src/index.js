@@ -13,38 +13,38 @@ import { Routes, Route } from 'react-router-dom'
 import routers from '@/router/index.js'
 
 ReactDOM.render(
-    //   <React.StrictMode>
-    <BrowserRouter>
-        <Routes>
-            {routers.map((v) => {
-                if (v.name.indexOf('home') != -1) {
-                    return (
-                        <Route
-                            key={v.name}
-                            path={v.path}
-                            element={<v.component children={v.children} />}
-                        >
-                            {v.children.map((vc) => (
-                                <Route
-                                    path={vc.path}
-                                    key={vc.name}
-                                    element={<vc.component />}
-                                ></Route>
-                            ))}
-                        </Route>
-                    )
-                } else {
-                    return (
-                        <Route
-                            key={v.name}
-                            path={v.path}
-                            element={<v.component />}
-                        ></Route>
-                    )
-                }
-            })}
-        </Routes>
-    </BrowserRouter>,
-    //   </React.StrictMode>,
+    <React.StrictMode>
+        <BrowserRouter>
+            <Routes>
+                {routers.map((v) => {
+                    if (v.name.indexOf('home') != -1) {
+                        return (
+                            <Route
+                                key={v.name}
+                                path={v.path}
+                                element={<v.component children={v.children} />}
+                            >
+                                {v.children.map((vc) => (
+                                    <Route
+                                        path={vc.path}
+                                        key={vc.name}
+                                        element={<vc.component />}
+                                    ></Route>
+                                ))}
+                            </Route>
+                        )
+                    } else {
+                        return (
+                            <Route
+                                key={v.name}
+                                path={v.path}
+                                element={<v.component />}
+                            ></Route>
+                        )
+                    }
+                })}
+            </Routes>
+        </BrowserRouter>
+    </React.StrictMode>,
     document.querySelector('#root')
 )

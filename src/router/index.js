@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-27 18:22:44
+ * @LastEditTime: 2022-03-27 19:14:40
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -29,6 +29,16 @@ let router = [
                 component: AsyncComponent(
                     import(
                         /* webpackChunkName: "CodeSplit" */ '@/views/codeSplit/index'
+                    )
+                )
+            },
+            {
+                path: '/errorboundary',
+                name: 'ErrorBoundary',
+                menuname: '错误边界',
+                component: AsyncComponent(
+                    import(
+                        /*webpackChunkName: "ErrorBoundary"*/ '@/views/ErrorBoundaries/index'
                     )
                 )
             }
