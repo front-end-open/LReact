@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-27 19:42:51
+ * @LastEditTime: 2022-03-27 22:51:45
  * @Description: 错误边界捕获
  * @Date: 2022-03-27 19:37:23
  * @Author: wangshan
@@ -13,6 +13,7 @@ export default class ErrorBoundary extends React.Component {
     }
 
     componentDidCatch(error, errorInfo) {
+        // 捕获组件渲染期间的错误
         // 错误信息记录
         this.setState({
             error: error,

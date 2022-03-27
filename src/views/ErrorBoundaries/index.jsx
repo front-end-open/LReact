@@ -1,12 +1,12 @@
 /*
- * @LastEditTime: 2022-03-27 20:36:24
+ * @LastEditTime: 2022-03-27 23:06:32
  * @Description: 错误边界
  * @Date: 2022-03-27 19:11:07
  * @Author: wangshan
  * @LastEditors: wangshan
  */
-import ErrorBoundary from '@/components/ErrorBoundary'
 import PrintError from './PrintError'
+import ErrorBoundary from '@/components/ErrorBoundary'
 export default function (props) {
     return (
         <div>
@@ -34,7 +34,9 @@ export default function (props) {
                     JavaScript 栈外，React 16
                     还提供了组件栈追踪。现在你可以准确地查看发生在组件树内的错误信息：
                 </p>
-                <p className="tip-error">cr</p>
+                <p className="tip-error">
+                    对于事件处理器的错误，react错误边界无法处理。错误边界主要处理组件渲染期间的错误。对于事件处理器的异步任务，可以使用不同try-catch
+                </p>
             </div>
         </div>
     )

@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-27 19:54:47
+ * @LastEditTime: 2022-03-27 23:02:02
  * @Description: 模拟错误输出
  * @Date: 2022-03-27 19:43:46
  * @Author: wangshan
@@ -18,16 +18,15 @@ export default class PrintError extends React.Component {
                     counter: state.counter + 1
                 }
             })
-            setTimeout(() => {
-                if (this.state.counter >= 5)
-                    throw new Error('children: PrintError: sorry print Error')
-            }, 0)
         }
+    }
+    componentDidMount() {
+        // 生命周期抛出错误
+        // throw new Error('生命周期抛出的错误')
     }
 
     render() {
-        // if (this.state.counter === 5)
-        //     throw new Error('children: PrintError: sorry print Error')
+        // throw new Error('渲染期间抛出的错误')
         return (
             <div>
                 <div>
