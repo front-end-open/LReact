@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-28 23:46:14
+ * @LastEditTime: 2022-03-29 22:59:24
  * @Description: useState使用示列
  * @Date: 2022-03-28 22:21:50
  * @Author: wangshan
@@ -12,6 +12,10 @@ export default function UseState(props) {
     //经测试声明在函数组价外部的Hook无效。组件不会渲染
     // 使用useState声明count
     const [count, setCount] = React.useState(0)
+    // 等价
+    // let countState = React.useState(0)
+    // let count = countState[0]
+    // let setCount = countState[1]
     // 声明多个 state 变量！
     const [age, setAge] = React.useState(42)
     const [fruit, setFruit] = React.useState('banana')
