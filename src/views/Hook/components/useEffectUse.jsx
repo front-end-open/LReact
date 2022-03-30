@@ -1,11 +1,12 @@
 /*
- * @LastEditTime: 2022-03-29 00:47:19
+ * @LastEditTime: 2022-03-30 23:30:45
  * @Description: useEffect使用
  * @Date: 2022-03-29 00:03:13
  * @Author: wangshan
  * @LastEditors: wangshan
  */
 let dtitle = document.title
+console.log(dtitle)
 export default function UseEffect() {
     const [count, setCount] = React.useState(0)
     // 使用Effect在DOM渲染后更新页面表体
@@ -20,19 +21,17 @@ export default function UseEffect() {
         // 副作用函数还可以通过返回一个函数来指定如何“清除”副作用
         // 重置title
         // 理解state更新机制, 在useState更新state,采用异步更新策略
-        if (count === 5) {
-            return () => {
-                console.log('count已经到达条件')
-                setTimeout(() => (document.title = dtitle)) // state更新过后更新title
-                // document.title = dtitle // 无效
-            }
+
+        return () => {
+            console.log('清除副作用操作执行')
+            document.title = '组件已经卸载-清除副作用' // 组件卸载执行更新
         }
     })
 
     // 再次注册Effect
-    React.useEffect(() => {
-        console.log('click count ' + count + ' times')
-    })
+    // React.useEffect(() => {
+    //     console.log('click count ' + count + ' times')
+    // })
 
     return (
         <div>

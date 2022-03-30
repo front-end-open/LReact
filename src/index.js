@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-28 01:13:43
+ * @LastEditTime: 2022-03-30 23:12:15
  * @Description: 应用打包入口文件
  * @Date: 2022-03-15 00:37:34
  * @Author: wangshan
@@ -33,6 +33,9 @@ ReactDOM.render(
                             >
                                 {v.children.map((vc) => (
                                     <Route
+                                        {...(vc.meta.isIndex
+                                            ? { index: 'index' }
+                                            : {})}
                                         path={vc.path}
                                         key={vc.name}
                                         element={<vc.component />}

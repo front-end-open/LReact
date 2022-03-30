@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-28 01:18:05
+ * @LastEditTime: 2022-03-30 23:04:53
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -20,7 +20,10 @@ let router = [
                 path: '/globalcontext',
                 name: 'GlobalContext',
                 menuname: '公共状态管理-Context',
-                component: GlobalContext
+                component: GlobalContext,
+                meta: {
+                    isIndex: true
+                }
             },
             {
                 path: '/csplit',
@@ -30,7 +33,10 @@ let router = [
                     import(
                         /* webpackChunkName: "CodeSplit" */ '@/views/codeSplit/index'
                     )
-                )
+                ),
+                meta: {
+                    isIndex: false
+                }
             },
             {
                 path: '/errorboundary',
@@ -40,7 +46,10 @@ let router = [
                     import(
                         /*webpackChunkName: "ErrorBoundary"*/ '@/views/ErrorBoundaries/index'
                     )
-                )
+                ),
+                meta: {
+                    isIndex: false
+                }
             },
             {
                 path: '/Assets',
@@ -50,7 +59,10 @@ let router = [
                     import(
                         /*webpackChunkName: "AssetPro"*/ '@/views/AssetPro/index'
                     )
-                )
+                ),
+                meta: {
+                    isIndex: false
+                }
             },
             {
                 path: '/Redux',
@@ -58,7 +70,10 @@ let router = [
                 menuname: 'Redux使用',
                 component: AsyncComponent(
                     import(/*webpackChunkName: "Redux"*/ '@/views/Redux/index')
-                )
+                ),
+                meta: {
+                    isIndex: false
+                }
             },
             {
                 path: '/reacthook',
@@ -66,7 +81,10 @@ let router = [
                 menuname: 'Hook使用',
                 component: AsyncComponent(
                     import(/*webpackChunkName: "Hook"*/ '@/views/Hook/index')
-                )
+                ),
+                meta: {
+                    isIndex: false
+                }
             }
         ]
     },
