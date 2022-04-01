@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-04-01 23:42:31
+ * @LastEditTime: 2022-04-02 00:16:10
  * @Description: 验证Hook调用顺序
  * @Date: 2022-04-01 23:14:04
  * @Author: wangshan
@@ -12,11 +12,11 @@ export function TestEffectLoop() {
     // 初始化state-effect
     // 设置条件，更改hook的调用顺序，测试运行结果
     const [name, setName] = useState('Mary')
-    if (name != '') {
-        useEffect(() => {
-            localStorage.setItem('formName', name)
-        })
-    }
+    // if (name != '') { // eslint-error
+    useEffect(() => {
+        localStorage.setItem('formName', name)
+    })
+    // }
 
     const [surname, setSurname] = useState('Poppins')
     useEffect(function updateTitle() {
