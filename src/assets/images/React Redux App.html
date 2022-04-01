@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><canvas style="inset: 0px; pointer-events: none; position: fixed; z-index: 1000000000;" width="2560" height="860"></canvas><script>
+(() => {
+/**
+ * This script injected by the installed three.js developer
+ * tools extension.
+ * https://github.com/threejs/three-devtools
+ */
+
+const $devtoolsReady = Symbol('devtoolsReady');
+const $backlog = Symbol('backlog');
+
+// The __THREE_DEVTOOLS__ target is small and light-weight, and collects
+// events triggered until the devtools panel is ready, which is when
+// the events are flushed.
+const target = new class ThreeDevToolsTarget extends EventTarget {
+  constructor() {
+    super();
+    this[$devtoolsReady] = false;
+    this[$backlog] = [];
+    this.addEventListener('devtools-ready', e => {
+      this[$devtoolsReady] = true;
+      for (let event of this[$backlog]) {
+        this.dispatchEvent(event);
+      }
+    }, { once: true });
+  }
+
+  dispatchEvent(event) {
+    if (this[$devtoolsReady] || event.type === 'devtools-ready') {
+      super.dispatchEvent(event);
+    } else {
+      this[$backlog].push(event);
+    }
+  }
+}
+
+Object.defineProperty(window, '__THREE_DEVTOOLS__', {
+  value: target,
+});
+})();
+</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React Redux App</title>
+  <script defer="" src="./React Redux App_files/bundle.js"></script><style>body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9zdHlsZS9pbmRleC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxTQUFTO0VBQ1Q7O2NBRVk7RUFDWixtQ0FBbUM7RUFDbkMsa0NBQWtDO0FBQ3BDO0FBQ0E7Ozs7OztFQU1FLFNBQVM7QUFDWDtBQUNBO0VBQ0U7YUFDVztBQUNiIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XG4gIG1hcmdpbjogMDtcbiAgZm9udC1mYW1pbHk6IC1hcHBsZS1zeXN0ZW0sIEJsaW5rTWFjU3lzdGVtRm9udCwgXCJTZWdvZSBVSVwiLCBcIlJvYm90b1wiLCBcIk94eWdlblwiLFxuICAgIFwiVWJ1bnR1XCIsIFwiQ2FudGFyZWxsXCIsIFwiRmlyYSBTYW5zXCIsIFwiRHJvaWQgU2Fuc1wiLCBcIkhlbHZldGljYSBOZXVlXCIsXG4gICAgc2Fucy1zZXJpZjtcbiAgLXdlYmtpdC1mb250LXNtb290aGluZzogYW50aWFsaWFzZWQ7XG4gIC1tb3otb3N4LWZvbnQtc21vb3RoaW5nOiBncmF5c2NhbGU7XG59XG5oMSxcbmgyLFxuaDMsXG5oNCxcbmg1LFxuaDYge1xuICBtYXJnaW46IDA7XG59XG5jb2RlIHtcbiAgZm9udC1mYW1pbHk6IHNvdXJjZS1jb2RlLXBybywgTWVubG8sIE1vbmFjbywgQ29uc29sYXMsIFwiQ291cmllciBOZXdcIixcbiAgICBtb25vc3BhY2U7XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>.App {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+}
+.App > h3 {
+  padding: 4rem 0;
+  font-weight: lighter;
+  font-size: 4rem;
+  color: #cccccc;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9zdHlsZS9BcHAuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLGFBQWE7RUFDYixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGVBQWU7RUFDZixvQkFBb0I7RUFDcEIsZUFBZTtFQUNmLGNBQWM7QUFDaEIiLCJzb3VyY2VzQ29udGVudCI6WyIuQXBwIHtcbiAgd2lkdGg6IDEwMHZ3O1xuICBoZWlnaHQ6IDEwMHZoO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG4uQXBwID4gaDMge1xuICBwYWRkaW5nOiA0cmVtIDA7XG4gIGZvbnQtd2VpZ2h0OiBsaWdodGVyO1xuICBmb250LXNpemU6IDRyZW07XG4gIGNvbG9yOiAjY2NjY2NjO1xufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>.CheckBox,
+.Radio {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.CheckBox > input {
+  border-radius: 50%;
+}
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+  input[type="checkbox"],
+  input[type="radio"] {
+    --active: #275efe;
+    --active-inner: #fff;
+    --focus: 2px rgba(39, 94, 254, 0.3);
+    --border: #bbc1e1;
+    --border-hover: #275efe;
+    --background: #fff;
+    --disabled: #f6f8ff;
+    --disabled-inner: #e1e6f9;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 21px;
+    outline: none;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+    border: 1px solid var(--bc, var(--border));
+    background: var(--b, var(--background));
+    transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+  }
+  input[type="checkbox"]:after,
+  input[type="radio"]:after {
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    position: absolute;
+    transition: transform var(--d-t, 0.3s) var(--d-t-e, ease),
+      opacity var(--d-o, 0.2s);
+  }
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
+    --b: var(--active);
+    --bc: var(--active);
+    --d-o: 0.3s;
+    --d-t: 0.6s;
+    --d-t-e: cubic-bezier(0.2, 0.85, 0.32, 1.2);
+  }
+  input[type="checkbox"]:disabled,
+  input[type="radio"]:disabled {
+    --b: var(--disabled);
+    cursor: not-allowed;
+    opacity: 0.9;
+  }
+  input[type="checkbox"]:disabled:checked,
+  input[type="radio"]:disabled:checked {
+    --b: var(--disabled-inner);
+    --bc: var(--border);
+  }
+  input[type="checkbox"]:disabled + label,
+  input[type="radio"]:disabled + label {
+    cursor: not-allowed;
+  }
+  input[type="checkbox"]:hover:not(:checked):not(:disabled),
+  input[type="radio"]:hover:not(:checked):not(:disabled) {
+    --bc: var(--border-hover);
+  }
+  input[type="checkbox"]:focus,
+  input[type="radio"]:focus {
+    box-shadow: 0 0 0 var(--focus);
+  }
+  input[type="checkbox"]:not(.switch),
+  input[type="radio"]:not(.switch) {
+    width: 21px;
+  }
+  input[type="checkbox"]:not(.switch):after,
+  input[type="radio"]:not(.switch):after {
+    opacity: var(--o, 0);
+  }
+  input[type="checkbox"]:not(.switch):checked,
+  input[type="radio"]:not(.switch):checked {
+    --o: 1;
+  }
+  input[type="checkbox"] + label,
+  input[type="radio"] + label {
+    font-size: 14px;
+    line-height: 21px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    margin-left: 4px;
+  }
+  input[type="checkbox"]:not(.switch) {
+    border-radius: 7px;
+  }
+  input[type="checkbox"]:not(.switch):after {
+    width: 5px;
+    height: 9px;
+    border: 2px solid var(--active-inner);
+    border-top: 0;
+    border-left: 0;
+    left: 7px;
+    top: 4px;
+    transform: rotate(var(--r, 20deg));
+  }
+  input[type="checkbox"]:not(.switch):checked {
+    --r: 43deg;
+  }
+  input[type="checkbox"].switch {
+    width: 38px;
+    border-radius: 11px;
+  }
+  input[type="checkbox"].switch:after {
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: var(--ab, var(--border));
+    transform: translateX(var(--x, 0));
+  }
+  input[type="checkbox"].switch:checked {
+    --ab: var(--active-inner);
+    --x: 17px;
+  }
+  input[type="checkbox"].switch:disabled:not(:checked):after {
+    opacity: 0.6;
+  }
+  input[type="radio"] {
+    border-radius: 50%;
+  }
+  input[type="radio"]:after {
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    background: var(--active-inner);
+    opacity: 0;
+    transform: scale(var(--s, 0.7));
+  }
+  input[type="radio"]:checked {
+    --s: 0.5;
+  }
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9jb21wb25lbnRzL0NoZWNrQm94L2luZGV4LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7RUFFRSxXQUFXO0VBQ1gsWUFBWTtFQUNaLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0Usa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRTs7SUFFRSxpQkFBaUI7SUFDakIsb0JBQW9CO0lBQ3BCLG1DQUFtQztJQUNuQyxpQkFBaUI7SUFDakIsdUJBQXVCO0lBQ3ZCLGtCQUFrQjtJQUNsQixtQkFBbUI7SUFDbkIseUJBQXlCO0lBQ3pCLHdCQUF3QjtJQUN4QixxQkFBcUI7SUFDckIsWUFBWTtJQUNaLGFBQWE7SUFDYixxQkFBcUI7SUFDckIsbUJBQW1CO0lBQ25CLGtCQUFrQjtJQUNsQixTQUFTO0lBQ1QsZUFBZTtJQUNmLDBDQUEwQztJQUMxQyx1Q0FBdUM7SUFDdkMsK0RBQStEO0VBQ2pFO0VBQ0E7O0lBRUUsV0FBVztJQUNYLGNBQWM7SUFDZCxPQUFPO0lBQ1AsTUFBTTtJQUNOLGtCQUFrQjtJQUNsQjs4QkFDMEI7RUFDNUI7RUFDQTs7SUFFRSxrQkFBa0I7SUFDbEIsbUJBQW1CO0lBQ25CLFdBQVc7SUFDWCxXQUFXO0lBQ1gsMkNBQTJDO0VBQzdDO0VBQ0E7O0lBRUUsb0JBQW9CO0lBQ3BCLG1CQUFtQjtJQUNuQixZQUFZO0VBQ2Q7RUFDQTs7SUFFRSwwQkFBMEI7SUFDMUIsbUJBQW1CO0VBQ3JCO0VBQ0E7O0lBRUUsbUJBQW1CO0VBQ3JCO0VBQ0E7O0lBRUUseUJBQXlCO0VBQzNCO0VBQ0E7O0lBRUUsOEJBQThCO0VBQ2hDO0VBQ0E7O0lBRUUsV0FBVztFQUNiO0VBQ0E7O0lBRUUsb0JBQW9CO0VBQ3RCO0VBQ0E7O0lBRUUsTUFBTTtFQUNSO0VBQ0E7O0lBRUUsZUFBZTtJQUNmLGlCQUFpQjtJQUNqQixxQkFBcUI7SUFDckIsbUJBQW1CO0lBQ25CLGVBQWU7SUFDZixnQkFBZ0I7RUFDbEI7RUFDQTtJQUNFLGtCQUFrQjtFQUNwQjtFQUNBO0lBQ0UsVUFBVTtJQUNWLFdBQVc7SUFDWCxxQ0FBcUM7SUFDckMsYUFBYTtJQUNiLGNBQWM7SUFDZCxTQUFTO0lBQ1QsUUFBUTtJQUNSLGtDQUFrQztFQUNwQztFQUNBO0lBQ0UsVUFBVTtFQUNaO0VBQ0E7SUFDRSxXQUFXO0lBQ1gsbUJBQW1CO0VBQ3JCO0VBQ0E7SUFDRSxTQUFTO0lBQ1QsUUFBUTtJQUNSLGtCQUFrQjtJQUNsQixXQUFXO0lBQ1gsWUFBWTtJQUNaLG9DQUFvQztJQUNwQyxrQ0FBa0M7RUFDcEM7RUFDQTtJQUNFLHlCQUF5QjtJQUN6QixTQUFTO0VBQ1g7RUFDQTtJQUNFLFlBQVk7RUFDZDtFQUNBO0lBQ0Usa0JBQWtCO0VBQ3BCO0VBQ0E7SUFDRSxXQUFXO0lBQ1gsWUFBWTtJQUNaLGtCQUFrQjtJQUNsQiwrQkFBK0I7SUFDL0IsVUFBVTtJQUNWLCtCQUErQjtFQUNqQztFQUNBO0lBQ0UsUUFBUTtFQUNWO0FBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyIuQ2hlY2tCb3gsXG4uUmFkaW8ge1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuLkNoZWNrQm94ID4gaW5wdXQge1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG59XG5Ac3VwcG9ydHMgKC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZSkgb3IgKC1tb3otYXBwZWFyYW5jZTogbm9uZSkge1xuICBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0sXG4gIGlucHV0W3R5cGU9XCJyYWRpb1wiXSB7XG4gICAgLS1hY3RpdmU6ICMyNzVlZmU7XG4gICAgLS1hY3RpdmUtaW5uZXI6ICNmZmY7XG4gICAgLS1mb2N1czogMnB4IHJnYmEoMzksIDk0LCAyNTQsIDAuMyk7XG4gICAgLS1ib3JkZXI6ICNiYmMxZTE7XG4gICAgLS1ib3JkZXItaG92ZXI6ICMyNzVlZmU7XG4gICAgLS1iYWNrZ3JvdW5kOiAjZmZmO1xuICAgIC0tZGlzYWJsZWQ6ICNmNmY4ZmY7XG4gICAgLS1kaXNhYmxlZC1pbm5lcjogI2UxZTZmOTtcbiAgICAtd2Via2l0LWFwcGVhcmFuY2U6IG5vbmU7XG4gICAgLW1vei1hcHBlYXJhbmNlOiBub25lO1xuICAgIGhlaWdodDogMjFweDtcbiAgICBvdXRsaW5lOiBub25lO1xuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBtYXJnaW46IDA7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGJvcmRlcjogMXB4IHNvbGlkIHZhcigtLWJjLCB2YXIoLS1ib3JkZXIpKTtcbiAgICBiYWNrZ3JvdW5kOiB2YXIoLS1iLCB2YXIoLS1iYWNrZ3JvdW5kKSk7XG4gICAgdHJhbnNpdGlvbjogYmFja2dyb3VuZCAwLjNzLCBib3JkZXItY29sb3IgMC4zcywgYm94LXNoYWRvdyAwLjJzO1xuICB9XG4gIGlucHV0W3R5cGU9XCJjaGVja2JveFwiXTphZnRlcixcbiAgaW5wdXRbdHlwZT1cInJhZGlvXCJdOmFmdGVyIHtcbiAgICBjb250ZW50OiBcIlwiO1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIGxlZnQ6IDA7XG4gICAgdG9wOiAwO1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICB0cmFuc2l0aW9uOiB0cmFuc2Zvcm0gdmFyKC0tZC10LCAwLjNzKSB2YXIoLS1kLXQtZSwgZWFzZSksXG4gICAgICBvcGFjaXR5IHZhcigtLWQtbywgMC4ycyk7XG4gIH1cbiAgaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdOmNoZWNrZWQsXG4gIGlucHV0W3R5cGU9XCJyYWRpb1wiXTpjaGVja2VkIHtcbiAgICAtLWI6IHZhcigtLWFjdGl2ZSk7XG4gICAgLS1iYzogdmFyKC0tYWN0aXZlKTtcbiAgICAtLWQtbzogMC4zcztcbiAgICAtLWQtdDogMC42cztcbiAgICAtLWQtdC1lOiBjdWJpYy1iZXppZXIoMC4yLCAwLjg1LCAwLjMyLCAxLjIpO1xuICB9XG4gIGlucHV0W3R5cGU9XCJjaGVja2JveFwiXTpkaXNhYmxlZCxcbiAgaW5wdXRbdHlwZT1cInJhZGlvXCJdOmRpc2FibGVkIHtcbiAgICAtLWI6IHZhcigtLWRpc2FibGVkKTtcbiAgICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xuICAgIG9wYWNpdHk6IDAuOTtcbiAgfVxuICBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl06ZGlzYWJsZWQ6Y2hlY2tlZCxcbiAgaW5wdXRbdHlwZT1cInJhZGlvXCJdOmRpc2FibGVkOmNoZWNrZWQge1xuICAgIC0tYjogdmFyKC0tZGlzYWJsZWQtaW5uZXIpO1xuICAgIC0tYmM6IHZhcigtLWJvcmRlcik7XG4gIH1cbiAgaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdOmRpc2FibGVkICsgbGFiZWwsXG4gIGlucHV0W3R5cGU9XCJyYWRpb1wiXTpkaXNhYmxlZCArIGxhYmVsIHtcbiAgICBjdXJzb3I6IG5vdC1hbGxvd2VkO1xuICB9XG4gIGlucHV0W3R5cGU9XCJjaGVja2JveFwiXTpob3Zlcjpub3QoOmNoZWNrZWQpOm5vdCg6ZGlzYWJsZWQpLFxuICBpbnB1dFt0eXBlPVwicmFkaW9cIl06aG92ZXI6bm90KDpjaGVja2VkKTpub3QoOmRpc2FibGVkKSB7XG4gICAgLS1iYzogdmFyKC0tYm9yZGVyLWhvdmVyKTtcbiAgfVxuICBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl06Zm9jdXMsXG4gIGlucHV0W3R5cGU9XCJyYWRpb1wiXTpmb2N1cyB7XG4gICAgYm94LXNoYWRvdzogMCAwIDAgdmFyKC0tZm9jdXMpO1xuICB9XG4gIGlucHV0W3R5cGU9XCJjaGVja2JveFwiXTpub3QoLnN3aXRjaCksXG4gIGlucHV0W3R5cGU9XCJyYWRpb1wiXTpub3QoLnN3aXRjaCkge1xuICAgIHdpZHRoOiAyMXB4O1xuICB9XG4gIGlucHV0W3R5cGU9XCJjaGVja2JveFwiXTpub3QoLnN3aXRjaCk6YWZ0ZXIsXG4gIGlucHV0W3R5cGU9XCJyYWRpb1wiXTpub3QoLnN3aXRjaCk6YWZ0ZXIge1xuICAgIG9wYWNpdHk6IHZhcigtLW8sIDApO1xuICB9XG4gIGlucHV0W3R5cGU9XCJjaGVja2JveFwiXTpub3QoLnN3aXRjaCk6Y2hlY2tlZCxcbiAgaW5wdXRbdHlwZT1cInJhZGlvXCJdOm5vdCguc3dpdGNoKTpjaGVja2VkIHtcbiAgICAtLW86IDE7XG4gIH1cbiAgaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdICsgbGFiZWwsXG4gIGlucHV0W3R5cGU9XCJyYWRpb1wiXSArIGxhYmVsIHtcbiAgICBmb250LXNpemU6IDE0cHg7XG4gICAgbGluZS1oZWlnaHQ6IDIxcHg7XG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICAgIHZlcnRpY2FsLWFsaWduOiB0b3A7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIG1hcmdpbi1sZWZ0OiA0cHg7XG4gIH1cbiAgaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdOm5vdCguc3dpdGNoKSB7XG4gICAgYm9yZGVyLXJhZGl1czogN3B4O1xuICB9XG4gIGlucHV0W3R5cGU9XCJjaGVja2JveFwiXTpub3QoLnN3aXRjaCk6YWZ0ZXIge1xuICAgIHdpZHRoOiA1cHg7XG4gICAgaGVpZ2h0OiA5cHg7XG4gICAgYm9yZGVyOiAycHggc29saWQgdmFyKC0tYWN0aXZlLWlubmVyKTtcbiAgICBib3JkZXItdG9wOiAwO1xuICAgIGJvcmRlci1sZWZ0OiAwO1xuICAgIGxlZnQ6IDdweDtcbiAgICB0b3A6IDRweDtcbiAgICB0cmFuc2Zvcm06IHJvdGF0ZSh2YXIoLS1yLCAyMGRlZykpO1xuICB9XG4gIGlucHV0W3R5cGU9XCJjaGVja2JveFwiXTpub3QoLnN3aXRjaCk6Y2hlY2tlZCB7XG4gICAgLS1yOiA0M2RlZztcbiAgfVxuICBpbnB1dFt0eXBlPVwiY2hlY2tib3hcIl0uc3dpdGNoIHtcbiAgICB3aWR0aDogMzhweDtcbiAgICBib3JkZXItcmFkaXVzOiAxMXB4O1xuICB9XG4gIGlucHV0W3R5cGU9XCJjaGVja2JveFwiXS5zd2l0Y2g6YWZ0ZXIge1xuICAgIGxlZnQ6IDJweDtcbiAgICB0b3A6IDJweDtcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XG4gICAgd2lkdGg6IDE1cHg7XG4gICAgaGVpZ2h0OiAxNXB4O1xuICAgIGJhY2tncm91bmQ6IHZhcigtLWFiLCB2YXIoLS1ib3JkZXIpKTtcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgodmFyKC0teCwgMCkpO1xuICB9XG4gIGlucHV0W3R5cGU9XCJjaGVja2JveFwiXS5zd2l0Y2g6Y2hlY2tlZCB7XG4gICAgLS1hYjogdmFyKC0tYWN0aXZlLWlubmVyKTtcbiAgICAtLXg6IDE3cHg7XG4gIH1cbiAgaW5wdXRbdHlwZT1cImNoZWNrYm94XCJdLnN3aXRjaDpkaXNhYmxlZDpub3QoOmNoZWNrZWQpOmFmdGVyIHtcbiAgICBvcGFjaXR5OiAwLjY7XG4gIH1cbiAgaW5wdXRbdHlwZT1cInJhZGlvXCJdIHtcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIH1cbiAgaW5wdXRbdHlwZT1cInJhZGlvXCJdOmFmdGVyIHtcbiAgICB3aWR0aDogMTlweDtcbiAgICBoZWlnaHQ6IDE5cHg7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgIGJhY2tncm91bmQ6IHZhcigtLWFjdGl2ZS1pbm5lcik7XG4gICAgb3BhY2l0eTogMDtcbiAgICB0cmFuc2Zvcm06IHNjYWxlKHZhcigtLXMsIDAuNykpO1xuICB9XG4gIGlucHV0W3R5cGU9XCJyYWRpb1wiXTpjaGVja2VkIHtcbiAgICAtLXM6IDAuNTtcbiAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>.todo-wrap {
+  width: 50vmax;
+  margin: auto;
+  border: 2px solid red;
+}
+.bottom-control {
+  padding: 24px;
+}
+.bottom-control .radio-group {
+  width: 50%;
+  display: flex;
+  margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  html {
+    font-size: 25px;
+  }
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9UT0RPL2luZGV4LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7RUFDYixZQUFZO0VBQ1oscUJBQXFCO0FBQ3ZCO0FBQ0E7RUFDRSxhQUFhO0FBQ2Y7QUFDQTtFQUNFLFVBQVU7RUFDVixhQUFhO0VBQ2IsWUFBWTtBQUNkOztBQUVBO0VBQ0U7SUFDRSxlQUFlO0VBQ2pCO0FBQ0Y7O0FBRUE7RUFDRTtJQUNFLGVBQWU7RUFDakI7QUFDRiIsInNvdXJjZXNDb250ZW50IjpbIi50b2RvLXdyYXAge1xuICB3aWR0aDogNTB2bWF4O1xuICBtYXJnaW46IGF1dG87XG4gIGJvcmRlcjogMnB4IHNvbGlkIHJlZDtcbn1cbi5ib3R0b20tY29udHJvbCB7XG4gIHBhZGRpbmc6IDI0cHg7XG59XG4uYm90dG9tLWNvbnRyb2wgLnJhZGlvLWdyb3VwIHtcbiAgd2lkdGg6IDUwJTtcbiAgZGlzcGxheTogZmxleDtcbiAgbWFyZ2luOiBhdXRvO1xufVxuXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOiA3NjhweCkge1xuICBodG1sIHtcbiAgICBmb250LXNpemU6IDEycHg7XG4gIH1cbn1cblxuQG1lZGlhIHNjcmVlbiBhbmQgKG1pbi13aWR0aDogNzY5cHgpIHtcbiAgaHRtbCB7XG4gICAgZm9udC1zaXplOiAyNXB4O1xuICB9XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>.item {
+  display: flex;
+  padding: 24px 0;
+  border-top: 1px solid #ccc;
+}
+.item:last-child {
+  border-bottom: 1px solid #ccc;
+}
+.item-left {
+  display: flex;
+  flex: 1 1;
+}
+.item-left .check-wrap {
+  width: 100px;
+}
+.item-left .left-title-content {
+  flex: 1 1;
+  text-align: justify;
+}
+.item-right {
+  position: relative;
+  width: 50px;
+}
+.item button {
+  display: none;
+}
+.item:hover button {
+  display: block;
+}
+
+.finish {
+  text-decoration: line-through;
+  color: #ccc;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9UT0RPL3RvZG9JdGVtL2luZGV4LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7RUFDYixlQUFlO0VBQ2YsMEJBQTBCO0FBQzVCO0FBQ0E7RUFDRSw2QkFBNkI7QUFDL0I7QUFDQTtFQUNFLGFBQWE7RUFDYixTQUFPO0FBQ1Q7QUFDQTtFQUNFLFlBQVk7QUFDZDtBQUNBO0VBQ0UsU0FBTztFQUNQLG1CQUFtQjtBQUNyQjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLFdBQVc7QUFDYjtBQUNBO0VBQ0UsYUFBYTtBQUNmO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCOztBQUVBO0VBQ0UsNkJBQTZCO0VBQzdCLFdBQVc7QUFDYiIsInNvdXJjZXNDb250ZW50IjpbIi5pdGVtIHtcbiAgZGlzcGxheTogZmxleDtcbiAgcGFkZGluZzogMjRweCAwO1xuICBib3JkZXItdG9wOiAxcHggc29saWQgI2NjYztcbn1cbi5pdGVtOmxhc3QtY2hpbGQge1xuICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2NjYztcbn1cbi5pdGVtLWxlZnQge1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4OiAxO1xufVxuLml0ZW0tbGVmdCAuY2hlY2std3JhcCB7XG4gIHdpZHRoOiAxMDBweDtcbn1cbi5pdGVtLWxlZnQgLmxlZnQtdGl0bGUtY29udGVudCB7XG4gIGZsZXg6IDE7XG4gIHRleHQtYWxpZ246IGp1c3RpZnk7XG59XG4uaXRlbS1yaWdodCB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgd2lkdGg6IDUwcHg7XG59XG4uaXRlbSBidXR0b24ge1xuICBkaXNwbGF5OiBub25lO1xufVxuLml0ZW06aG92ZXIgYnV0dG9uIHtcbiAgZGlzcGxheTogYmxvY2s7XG59XG5cbi5maW5pc2gge1xuICB0ZXh0LWRlY29yYXRpb246IGxpbmUtdGhyb3VnaDtcbiAgY29sb3I6ICNjY2M7XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>@import url(https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap);</style><style>/* body {
+  background: #8a2387;
+  background: linear-gradient(to right, #f27121, #e94057, #8a2387);
+  position: relative;
+  text-align: center;
+} */
+
+.btn {
+  background: none;
+  border: 0;
+  box-sizing: border-box;
+  color: transparent;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
+  left: 50%;
+  letter-spacing: 1.5px;
+  line-height: 90px;
+  outline: none;
+  overflow: hidden;
+  padding: 10px 0 0;
+  position: absolute;
+  text-transform: uppercase;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease-in;
+  width: 1rem;
+  height: 1rem;
+}
+
+.btn::before,
+.btn::after {
+  background-color: #555555;
+  content: "";
+  display: block;
+  height: 1.41rem;
+  left: 0;
+  position: absolute;
+  transform-origin: center left;
+  transition: all 0.2s ease-in;
+  width: 0.01rem;
+  z-index: -1;
+}
+
+.btn::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.btn::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+.btn:hover {
+  color: #8a2387;
+}
+
+/* .btn:hover::before,
+.btn:hover::after {
+  height: 50px;
+  transform: rotate(0deg);
+} */
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9jb21wb25lbnRzL0J1dHRvbi9pbmRleC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7Ozs7O0dBS0c7O0FBRUg7RUFDRSxnQkFBZ0I7RUFDaEIsU0FBUztFQUNULHNCQUFzQjtFQUN0QixrQkFBa0I7RUFDbEIsZUFBZTtFQUNmLHVDQUF1QztFQUN2QyxlQUFlO0VBQ2YsU0FBUztFQUNULHFCQUFxQjtFQUNyQixpQkFBaUI7RUFDakIsYUFBYTtFQUNiLGdCQUFnQjtFQUNoQixpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLHlCQUF5QjtFQUN6QixRQUFRO0VBQ1IsZ0NBQWdDO0VBQ2hDLDRCQUE0QjtFQUM1QixXQUFXO0VBQ1gsWUFBWTtBQUNkOztBQUVBOztFQUVFLHlCQUF5QjtFQUN6QixXQUFXO0VBQ1gsY0FBYztFQUNkLGVBQWU7RUFDZixPQUFPO0VBQ1Asa0JBQWtCO0VBQ2xCLDZCQUE2QjtFQUM3Qiw0QkFBNEI7RUFDNUIsY0FBYztFQUNkLFdBQVc7QUFDYjs7QUFFQTtFQUNFLE1BQU07RUFDTix3QkFBd0I7QUFDMUI7O0FBRUE7RUFDRSxTQUFTO0VBQ1QseUJBQXlCO0FBQzNCOztBQUVBO0VBQ0UsY0FBYztBQUNoQjs7QUFFQTs7OztHQUlHIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoXCJodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Sm9zZWZpbitTYW5zJmRpc3BsYXk9c3dhcFwiKTtcblxuLyogYm9keSB7XG4gIGJhY2tncm91bmQ6ICM4YTIzODc7XG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCh0byByaWdodCwgI2YyNzEyMSwgI2U5NDA1NywgIzhhMjM4Nyk7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSAqL1xuXG4uYnRuIHtcbiAgYmFja2dyb3VuZDogbm9uZTtcbiAgYm9yZGVyOiAwO1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICBjb2xvcjogdHJhbnNwYXJlbnQ7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgZm9udC1mYW1pbHk6IFwiSm9zZWZpbiBTYW5zXCIsIHNhbnMtc2VyaWY7XG4gIGZvbnQtc2l6ZTogMThweDtcbiAgbGVmdDogNTAlO1xuICBsZXR0ZXItc3BhY2luZzogMS41cHg7XG4gIGxpbmUtaGVpZ2h0OiA5MHB4O1xuICBvdXRsaW5lOiBub25lO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBwYWRkaW5nOiAxMHB4IDAgMDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xuICB0b3A6IDUwJTtcbiAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gIHRyYW5zaXRpb246IGFsbCAwLjJzIGVhc2UtaW47XG4gIHdpZHRoOiAxcmVtO1xuICBoZWlnaHQ6IDFyZW07XG59XG5cbi5idG46OmJlZm9yZSxcbi5idG46OmFmdGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzU1NTU1NTtcbiAgY29udGVudDogXCJcIjtcbiAgZGlzcGxheTogYmxvY2s7XG4gIGhlaWdodDogMS40MXJlbTtcbiAgbGVmdDogMDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB0cmFuc2Zvcm0tb3JpZ2luOiBjZW50ZXIgbGVmdDtcbiAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZS1pbjtcbiAgd2lkdGg6IDAuMDFyZW07XG4gIHotaW5kZXg6IC0xO1xufVxuXG4uYnRuOjpiZWZvcmUge1xuICB0b3A6IDA7XG4gIHRyYW5zZm9ybTogcm90YXRlKDQ1ZGVnKTtcbn1cblxuLmJ0bjo6YWZ0ZXIge1xuICBib3R0b206IDA7XG4gIHRyYW5zZm9ybTogcm90YXRlKC00NWRlZyk7XG59XG5cbi5idG46aG92ZXIge1xuICBjb2xvcjogIzhhMjM4Nztcbn1cblxuLyogLmJ0bjpob3Zlcjo6YmVmb3JlLFxuLmJ0bjpob3Zlcjo6YWZ0ZXIge1xuICBoZWlnaHQ6IDUwcHg7XG4gIHRyYW5zZm9ybTogcm90YXRlKDBkZWcpO1xufSAqL1xuIl0sInNvdXJjZVJvb3QiOiIifQ== */</style></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="App"><h3>TODOMVC</h3><div class="todo-wrap"><button>reset</button><input type="text" value=""><div></div><div><div class="item"><div class="item-left"><div class="check-wrap"><div class="CheckBox"><input type="checkbox"></div></div><div class="left-title-content">helllo</div></div><div class="item-right"><button class="btn"></button></div></div><div class="item"><div class="item-left finish"><div class="check-wrap"><div class="CheckBox"><input type="checkbox" checked=""></div></div><div class="left-title-content">hello</div></div><div class="item-right"><button class="btn"></button></div></div></div><div class="bottom-control"><div class="radio-group"><div class="Radio"><label for="All"><input id="All" name="status" type="radio" value="All">All</label></div><div class="Radio"><label for="Active"><input id="Active" name="status" type="radio" value="Active">Active</label></div><div class="Radio"><label for="Complete"><input id="Complete" name="status" type="radio" value="Complete">Complete</label></div></div></div></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  
+
+<div style="position: static; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;"><div id="trans-tooltip"><div id="tip-left-top" style="background: url(&quot;chrome-extension://ccfjcepmiaackkccabgeeegeklgifffd/imgs/map/tip-left-top.png&quot;);"></div><div id="tip-top" style="background: url(&quot;chrome-extension://ccfjcepmiaackkccabgeeegeklgifffd/imgs/map/tip-top.png&quot;) repeat-x;"></div><div id="tip-right-top" style="background: url(&quot;chrome-extension://ccfjcepmiaackkccabgeeegeklgifffd/imgs/map/tip-right-top.png&quot;);"></div><div id="tip-right" style="background: url(&quot;chrome-extension://ccfjcepmiaackkccabgeeegeklgifffd/imgs/map/tip-right.png&quot;) repeat-y;"></div><div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ccfjcepmiaackkccabgeeegeklgifffd/imgs/map/tip-right-bottom.png&quot;);"></div><div id="tip-bottom" style="background: url(&quot;chrome-extension://ccfjcepmiaackkccabgeeegeklgifffd/imgs/map/tip-bottom.png&quot;) repeat-x;"></div><div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ccfjcepmiaackkccabgeeegeklgifffd/imgs/map/tip-left-bottom.png&quot;);"></div><div id="tip-left" style="background: url(&quot;chrome-extension://ccfjcepmiaackkccabgeeegeklgifffd/imgs/map/tip-left.png&quot;);"></div><div id="trans-content"></div></div><div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ccfjcepmiaackkccabgeeegeklgifffd/imgs/map/tip-arrow-bottom.png&quot;);"></div><div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ccfjcepmiaackkccabgeeegeklgifffd/imgs/map/tip-arrow-top.png&quot;);"></div></div><iframe src="./React Redux App_files/sources.html" allow="camera" style="display: none;"></iframe><iframe src="./React Redux App_files/audiosources.html" allow="microphone" style="display: none;"></iframe></body></html>
