@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-04-01 22:51:38
+ * @LastEditTime: 2022-04-02 00:29:42
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -93,6 +93,19 @@ let router = [
                 component: AsyncComponent(
                     import(
                         /*webpackChunkName: "HookRules"*/ '@/views/HookRules/index'
+                    )
+                ),
+                meta: {
+                    isIndex: false
+                }
+            },
+            {
+                path: '/customhook',
+                name: 'CustomHook',
+                menuname: '自定义Hook',
+                component: AsyncComponent(
+                    import(
+                        /*webpackChunkName: "CustomHook"*/ '@/views/CostomHook/index'
                     )
                 ),
                 meta: {

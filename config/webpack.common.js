@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-04-01 22:34:54
+ * @LastEditTime: 2022-04-02 00:28:44
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -82,9 +82,7 @@ module.exports = function (options) {
                                         importLoaders: 1 // 查询参数 importLoaders，用于配置「css-loader 作用于 @import 的资源之前」有多少个 loader
                                     }
                                 },
-
                                 'postcss-loader',
-
                                 'sass-loader', //
                                 {
                                     loader: 'sass-resources-loader', // 配置scss全局模块注入
