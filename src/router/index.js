@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-30 23:04:53
+ * @LastEditTime: 2022-04-01 22:51:38
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -81,6 +81,19 @@ let router = [
                 menuname: 'Hook使用',
                 component: AsyncComponent(
                     import(/*webpackChunkName: "Hook"*/ '@/views/Hook/index')
+                ),
+                meta: {
+                    isIndex: false
+                }
+            },
+            {
+                path: '/hookrule',
+                name: 'HookRules',
+                menuname: 'hook使用规则',
+                component: AsyncComponent(
+                    import(
+                        /*webpackChunkName: "HookRules"*/ '@/views/HookRules/index'
+                    )
                 ),
                 meta: {
                     isIndex: false
