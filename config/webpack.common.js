@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-03-28 00:19:05
+ * @LastEditTime: 2022-04-01 22:34:54
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -22,9 +22,9 @@ module.exports = function (options) {
         entry: [paths.appSrc],
         output: {
             path: paths.appBuild,
-            chunkFilename: 'js/[name].[chunkhash].js', // 设置路由分拆后的chunk名
+            chunkFilename: 'static/js/[name].[chunkhash].js', // 设置路由分拆后的chunk名
             publicPath: '/',
-            assetModuleFilename: 'assets/[hash][ext][query]' // 图片资源输出目录, 适用于Asset-Modules Type: (assets | assets/resource)
+            assetModuleFilename: 'static/assets/[hash][ext][query]' // 图片资源输出目录, 适用于Asset-Modules Type: (assets | assets/resource)
         },
         cache: {
             // 使用持久化缓存
