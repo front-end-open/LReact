@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://front-end-open.github.io/blog</id>
+    <title>LReact Blog</title>
+    <updated>2021-08-26T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://front-end-open.github.io/blog"/>
+    <subtitle>LReact Blog</subtitle>
+    <icon>https://front-end-open.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Welcome]]></title>
+        <id>welcome</id>
+        <link href="https://front-end-open.github.io/blog/welcome"/>
+        <updated>2021-08-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[欢迎来到 pachverb，react 使用手册。该手册只在记录 react 使用指南与经验分享。]]></summary>
+        <content type="html"><![CDATA[<p>欢迎来到 pachverb，react 使用手册。该手册只在记录 react 使用指南与经验分享。</p>]]></content>
+        <author>
+            <name>bird-wangshan</name>
+            <uri>https://github.com/PachVerb</uri>
+        </author>
+        <category label="Reactjs" term="Reactjs"/>
+        <category label="Flux" term="Flux"/>
+        <category label="Redux" term="Redux"/>
+        <category label="MVVM" term="MVVM"/>
+    </entry>
+</feed>
