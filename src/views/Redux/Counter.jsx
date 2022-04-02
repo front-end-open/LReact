@@ -6,15 +6,11 @@
  * @LastEditors: wangshan
  */
 
-import fs from 'fs'
-import path from 'path'
-
 import React from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
 
 import { decrement, increment } from '@/reducer/counterReducer'
-import HookRule from '@/views/Context/index'
 
 export function Counter() {
     const count = useSelector((state) => state.counter.value)
