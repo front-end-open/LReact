@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[576],{3056:function(e){e.exports=JSON.parse('{"allTagsPath":"/LReact/blog/tags","name":"MVVM","count":1,"permalink":"/LReact/blog/tags/mvvm"}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[815],{5468:function(e){e.exports=JSON.parse('{"allTagsPath":"/blog/tags","name":"MVVM","count":1,"permalink":"/blog/tags/mvvm"}')}}]);

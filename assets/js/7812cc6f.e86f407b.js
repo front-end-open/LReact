@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[882],{5660:function(e){e.exports=JSON.parse('{"allTagsPath":"/LReact/blog/tags","name":"Flux","count":1,"permalink":"/LReact/blog/tags/flux"}')}}]);
