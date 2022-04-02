@@ -9,7 +9,7 @@ const config = {
   title: "LReact",
   tagline: "so easy",
   url: "https://front-end-open.github.io",
-  baseUrl: "/",
+  baseUrl: "/LReact/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
