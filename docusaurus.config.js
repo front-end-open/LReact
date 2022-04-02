@@ -39,7 +39,7 @@ const config = {
       }),
     ],
   ],
-  themes: ["@docusaurus/theme-search-algolia"],
+  //   themes: ["@docusaurus/theme-search-algolia"],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -112,10 +112,6 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
-      },
-      algolia: {
-        contextualSearch: true,
-        searchPagePath: "search",
       },
     }),
 };
