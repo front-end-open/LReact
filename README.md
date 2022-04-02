@@ -16,6 +16,10 @@
 
 -   资源抽离
 
+#### Linter
+
+-   格式化导入顺序(ES2015/import/export)
+
 ## todo
 
 -   Context

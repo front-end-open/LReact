@@ -1,12 +1,20 @@
 /*
- * @LastEditTime: 2022-03-28 01:10:18
+ * @LastEditTime: 2022-04-03 00:53:41
  * @Description: redux计数器
  * @Date: 2022-03-28 01:10:17
  * @Author: wangshan
  * @LastEditors: wangshan
  */
+
+import fs from 'fs'
+import path from 'path'
+
+import React from 'react'
+
 import { useSelector, useDispatch } from 'react-redux'
+
 import { decrement, increment } from '@/reducer/counterReducer'
+import HookRule from '@/views/Context/index'
 
 export function Counter() {
     const count = useSelector((state) => state.counter.value)
