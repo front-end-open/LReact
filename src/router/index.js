@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-04-02 00:29:42
+ * @LastEditTime: 2022-04-06 23:31:46
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -107,6 +107,17 @@ let router = [
                     import(
                         /*webpackChunkName: "CustomHook"*/ '@/views/CostomHook/index'
                     )
+                ),
+                meta: {
+                    isIndex: false
+                }
+            },
+            {
+                path: '/flux',
+                name: 'Flux',
+                menuname: 'Flux认识',
+                component: AsyncComponent(
+                    import(/*webpackChunkName: "Flux"*/ '@/views/Flux/inidex')
                 ),
                 meta: {
                     isIndex: false
