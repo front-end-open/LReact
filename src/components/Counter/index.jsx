@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-04-07 16:37:23
+ * @LastEditTime: 2022-04-07 17:48:28
  * @Description: 计数器-redux
  * @Date: 2022-04-07 16:37:22
  * @Author: wangshan
@@ -38,6 +38,7 @@ class Counter extends Component {
     }
 }
 
+// 设置Counter设置类型检查
 Counter.propTypes = {
     value: PropTypes.number.isRequired,
     onIncrement: PropTypes.func.isRequired,

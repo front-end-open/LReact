@@ -10,7 +10,7 @@ import React from 'react'
 
 import { useSelector, useDispatch } from 'react-redux'
 
-import { decrement, increment } from '@/reducer/counterReducer'
+import { decrement, increment } from '@/reducers/counterReducer'
 
 export function Counter() {
     const count = useSelector((state) => state.counter.value)

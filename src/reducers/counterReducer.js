@@ -1,10 +1,11 @@
 /*
- * @LastEditTime: 2022-03-28 01:05:24
+ * @LastEditTime: 2022-04-07 16:51:19
  * @Description:
  * @Date: 2022-03-28 01:05:24
  * @Author: wangshan
  * @LastEditors: wangshan
  */
+// Reduxjs/tookit 版本
 import { createSlice } from '@reduxjs/toolkit'
 
 export const counterSlice = createSlice({
@@ -31,3 +32,15 @@ export const counterSlice = createSlice({
 export const { increment, decrement, incrementByAmount } = counterSlice.actions
 
 export default counterSlice.reducer
+
+// redux版本
+export const Counter = (state = 0, action) => {
+    switch (action.type) {
+        case 'INCREMENT':
+            return state + 1
+        case 'DECREMENT':
+            return state - 1
+        default:
+            return state
+    }
+}
