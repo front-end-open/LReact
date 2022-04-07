@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-04-02 00:28:44
+ * @LastEditTime: 2022-04-07 00:33:24
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -128,8 +128,9 @@ module.exports = function (options) {
                 '@public': paths.appPublic
             }
         },
-
-        devServer: {},
+        devServer: {
+            ...options.devServer
+        },
         plugins: [
             new HtmlWebpackPlugin({
                 template: './public/index.html'
