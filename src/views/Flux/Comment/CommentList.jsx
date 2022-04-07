@@ -1,10 +1,12 @@
 /*
- * @LastEditTime: 2022-04-07 11:12:26
+ * @LastEditTime: 2022-04-07 23:16:09
  * @Description: 评论列表
  * @Date: 2022-04-06 23:37:35
  * @Author: wangshan
  * @LastEditors: wangshan
  */
+// 此时的评论列表组件耦合了数据请求和业务逻辑
+// 抽离数据请求到父级容器组件，剩下业务逻辑组件作为内容展示。
 export default class CommentList extends React.Component {
     constructor(props) {
         super(props)

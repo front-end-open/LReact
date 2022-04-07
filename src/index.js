@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-04-07 17:30:28
+ * @LastEditTime: 2022-04-07 18:01:31
  * @Description: 应用打包入口文件
  * @Date: 2022-03-15 00:37:34
  * @Author: wangshan
@@ -27,10 +27,12 @@ const render = () =>
                                     key={v.name}
                                     path={v.path}
                                     element={
-                                        // <Provider store={store}>
-                                        //     <v.component children={v.children} />
-                                        // </Provider>
-                                        <v.component children={v.children} />
+                                        <Provider store={store}>
+                                            <v.component
+                                                children={v.children}
+                                            />
+                                        </Provider>
+                                        // <v.component children={v.children} />
                                     }
                                 >
                                     {v.children.map((vc) => (
@@ -61,4 +63,4 @@ const render = () =>
         document.querySelector('#root')
     )
 render()
-BaseCounter.subscribe(render)
+// BaseCounter.subscribe(render)
