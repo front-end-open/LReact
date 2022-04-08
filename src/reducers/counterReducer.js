@@ -9,6 +9,16 @@
 // 切片”是应用中单个功能的 Redux reducer 逻辑和 action 的集合, 用来切分根状态对象
 import { createSlice } from '@reduxjs/toolkit'
 //  createSlice 的函数，它负责生成 action 类型字符串、action creator 函数和 action 对象的工作
+
+/**
+ * Redux Toolkit 的 createSlice 和 createReducer 中编写 “mutation” 逻辑，
+ * 因为它们在内部使用 Immer！如果你在没有 Immer 的 reducer 中编写 mutation 逻辑，它将改变状态并导致错误！
+ *
+ *
+ *
+ *
+ *
+ */
 export const counterSlice = createSlice({
     name: 'counters', // name用作action的type
     initialState: {
