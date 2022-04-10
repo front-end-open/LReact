@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-04-08 18:00:46
+ * @LastEditTime: 2022-04-08 18:26:06
  * @Description: redux切片
  * @Date: 2022-03-28 01:05:24
  * @Author: wangshan
@@ -52,6 +52,10 @@ export const counterSlice = createSlice({
         }
     }
 })
+
+// 异步thunk
+
+
 export const { increment, decrement, incrementByAmount } = counterSlice.actions // action-creator
 
 export default counterSlice.reducer
