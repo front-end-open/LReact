@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-04-08 18:26:06
+ * @LastEditTime: 2022-04-16 20:40:03
  * @Description: redux切片
  * @Date: 2022-03-28 01:05:24
  * @Author: wangshan
@@ -13,11 +13,6 @@ import { createSlice } from '@reduxjs/toolkit'
 /**
  * Redux Toolkit 的 createSlice 和 createReducer 中编写 “mutation” 逻辑，
  * 因为它们在内部使用 Immer！如果你在没有 Immer 的 reducer 中编写 mutation 逻辑，它将改变状态并导致错误！
- *
- *
- *
- *
- *
  */
 export const counterSlice = createSlice({
     name: 'counters', // name用作action的type
@@ -37,6 +32,7 @@ export const counterSlice = createSlice({
             // type: counters/decrement
 
             return {
+                // 创建副本更新状态
                 ...state,
                 value: state.value - 1
             }
@@ -54,7 +50,6 @@ export const counterSlice = createSlice({
 })
 
 // 异步thunk
-
 
 export const { increment, decrement, incrementByAmount } = counterSlice.actions // action-creator
 

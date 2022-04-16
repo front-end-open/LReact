@@ -1,12 +1,12 @@
 /*
- * @LastEditTime: 2022-04-08 16:54:45
+ * @LastEditTime: 2022-04-16 20:39:23
  * @Description: 应用状态store
  * @Date: 2022-03-28 00:51:24
  * @Author: wangshan
  * @LastEditors: wangshan
  */
-import { createStore } from 'redux'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import { createStore } from 'redux'
 
 import counterReducer, { Counter } from '@/reducers/counterReducer'
 console.log(counterReducer)
