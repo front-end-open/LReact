@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-04-16 20:40:03
+ * @LastEditTime: 2022-04-18 00:26:02
  * @Description: redux切片
  * @Date: 2022-03-28 01:05:24
  * @Author: wangshan
@@ -40,16 +40,22 @@ export const counterSlice = createSlice({
         },
         incrementByAmount: (state, action) => {
             // type: counters/incrementByAmount
-            return {
-                ...state,
-                value: state.value + action.payload
-            }
-            // state.value += action.payload  // error: 不允许直接修改state对象
+            // return {
+            //     ...state,
+            //     value: state.value + action.payload
+            // }
+            console.log(action.payload)
+            state.value += action.payload // error: 不允许直接修改state对象
         }
     }
 })
 
 // 异步thunk
+export const incrementAsync = (amount) => (dispatch) => {
+    setTimeout(() => {
+        dispatch(incrementByAmount(amount))
+    }, 1000)
+}
 
 export const { increment, decrement, incrementByAmount } = counterSlice.actions // action-creator
 
