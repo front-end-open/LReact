@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-05-11 00:37:02
+ * @LastEditTime: 2022-05-14 16:43:30
  * @Description: 组件深入
  * @Date: 2022-05-10 23:45:19
  * @Author: wangshan
@@ -53,6 +53,37 @@ export default function Copnent() {
                         <li>4. React应用方式遵循ES6模块方案</li>
                     </ul>
                 </div>
+            </div>
+
+            <div>
+                <h3 className="primary">组件创建和拆分原则</h3>
+                <ul className="tip-content">
+                    <li>早期版本构建组件实例使用-React.createClass</li>
+                    <li>Es6 class 继承Compoent创建组件</li>
+                    <li>Es6 class继承React.Compoent</li>
+                </ul>
+                <p className="tip-error">
+                    React所有组件继承自顶层组件React.Component
+                    。该组件内部定义了组件基本的props，context,refs等。
+                    并在原型上定义了setState,和forceUpdate方法。内部的声明周期与createClass使用同一个方法创建.
+                </p>
+            </div>
+            <div>
+                <h3>React数据流</h3>
+                <p className="tip-content">
+                    react通过组件作为应用划分粒度。数据自顶向下单向流动。 ji
+                    即父组件到子组件。state和props作为数据使用的标志，其中state作为组件内部的状态，不作为外部使用。把组件作为一个函数看待，其中state作为函数内部状态，其中的props作为函数参数传递。最终函数jsx作为virtual-Dom.
+                </p>
+
+                <h4>* state</h4>
+
+                <p>
+                    在react之前，一些MVC框架也容易实现界面交互的状态管理。鲜明特点就是这写MVC架构很好的将
+                    View与界面交互的状态解耦，一般将状态放在Model中管理。而react组件可以使用state,作为组件内部状态是没有将交互数据和view解耦的，这是在没有结合flux和redux之前的情况，把这类状态统称为state.
+                </p>
+                <p className="tip-error">
+                    组件内部使用setState方法，最大表现就是组件会尝试从新渲染组件。
+                </p>
             </div>
         </div>
     )
