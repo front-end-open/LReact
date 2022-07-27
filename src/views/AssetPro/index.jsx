@@ -1,12 +1,12 @@
 /*
- * @LastEditTime: 2022-03-28 00:06:34
+ * @LastEditTime: 2022-07-27 22:27:36
  * @Description: 资源构建测试处理
  * @Date: 2022-03-27 23:53:18
  * @Author: wangshan
  * @LastEditors: wangshan
  */
-import Logo from '@/assets/images/download.svg'
 import Bg from '@/assets/images/bg.jpg'
+import Logo from '@/assets/images/download.svg'
 export default function AssetsPro() {
     return (
         <div

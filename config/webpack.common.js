@@ -1,20 +1,26 @@
 /*
- * @LastEditTime: 2022-04-07 00:33:24
+ * @LastEditTime: 2022-07-27 22:29:42
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
  * @LastEditors: wangshan
  */
-const paths = require('./paths')
+
+// eslint-disable-next-line import/order
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const cssRegex = /\.css$/
 const cssModuleRegex = /\.module\.css$/
 const sassRegex = /\.(scss|sass)$/
 const sassModuleRegex = /\.module\.(scss|sass)$/
 const imageInlineSizeLimit = 4 * 1024
-const webpack = require('webpack')
+
+// eslint-disable-next-line import/order
 const path = require('path')
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin') // 提取bundle文件的css文件
+const webpack = require('webpack')
+
+const paths = require('./paths')
 
 module.exports = function (options) {
     return {
