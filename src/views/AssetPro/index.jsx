@@ -1,11 +1,11 @@
 /*
- * @LastEditTime: 2022-07-27 22:27:36
+ * @LastEditTime: 2022-07-28 00:11:42
  * @Description: 资源构建测试处理
  * @Date: 2022-03-27 23:53:18
  * @Author: wangshan
  * @LastEditors: wangshan
  */
-import Bg from '@/assets/images/bg.jpg'
+// import Bg from '@/assets/images/bg.jpg'
 import Logo from '@/assets/images/download.svg'
 export default function AssetsPro() {
     return (

@@ -1,31 +1,31 @@
 .primary {
-  padding: 24px;
-  background-color: $primary-color;
+    padding: 24px;
+    background-color: $primary-color;
 }
 .tip-success {
-  padding: 24px;
-  background-color: $success-color;
+    padding: 24px;
+    background-color: $success-color;
 }
 
 .tip-error {
-  padding: 24px;
-  background-color: $error-color;
+    padding: 24px;
+    background-color: $error-color;
 }
 .tip-content {
-  padding: 24px;
-  background-color: #ccc;
+    padding: 24px;
+    background-color: #ccc;
 }
 
 .line {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .more-line {
-  display: -webkit-box;
-  overflow: hidden;
-  box-orient: vertical;
-  line-clamp: 3;
-  box-sizing: border-box;
+    display: -webkit-box;
+    overflow: hidden;
+    box-orient: vertical;
+    line-clamp: 3;
+    box-sizing: border-box;
 }
