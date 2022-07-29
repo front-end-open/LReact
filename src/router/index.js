@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-07-28 00:13:21
+ * @LastEditTime: 2022-07-28 22:27:55
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -120,7 +120,7 @@ let router = [
         name: 'Coponent',
         menuname: '组件深入',
         component: AsyncComponent(
-            import(/*webpackChunkName: coponent*/ '@/views/coponent/index')
+            import(/*webpackChunkName: "coponent"*/ '@/views/coponent/index')
         ),
         meta: {
             isIndex: false
@@ -131,7 +131,7 @@ let router = [
         name: 'JSXCOM',
         menuname: 'JSX/DOM相关',
         component: AsyncComponent(
-            import(/*webpackChunkName: jsxdom*/ '@/views/jsxdom/index')
+            import(/*webpackChunkName: "jsxdom"*/ '@/views/jsxdom/index')
         ),
         meta: {
             isIndex: false

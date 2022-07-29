@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-07-28 00:19:26
+ * @LastEditTime: 2022-07-30 00:26:15
  * @Description: jsx-dom
  * @Date: 2022-07-27 22:38:32
  * @Author: wangshan
@@ -13,6 +13,7 @@
  *  3. react中虚拟元素分： DOM元素和组件元素, 分别对应原生DOM元素和自定义元素, jsx与创建元素过程存在直接关联。
  *
  */
+import Property from './Property'
 export default function JSXDom() {
     return (
         <>
@@ -25,6 +26,12 @@ export default function JSXDom() {
                     jsx中注释，由于本省任然作用js环境，在注释使用上还是桶js中一样。需要注意的是，如果实在jsx结构中，
                     如果在子元素位置使用注释需要使用{}包括起来
                 </p>
+            </div>
+
+            <div className="tip-content">
+                <h2 className="primary">自定义属性</h2>
+
+                <Property />
             </div>
         </>
     )
