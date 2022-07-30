@@ -1,5 +1,7 @@
+import DemoTab from './components/Demo'
+
 /*
- * @LastEditTime: 2022-07-30 23:56:33
+ * @LastEditTime: 2022-07-31 01:00:15
  * @Description: 组件深入
  * @Date: 2022-05-10 23:45:19
  * @Author: wangshan
@@ -84,6 +86,12 @@ export default function Copnent() {
                 <p className="tip-error">
                     组件内部使用setState方法，最大表现就是组件会尝试从新渲染组件。
                 </p>
+            </div>
+
+            <div className="tip-content">
+                <h2>UI-tab组件使用</h2>
+
+                <DemoTab />
             </div>
         </div>
     )

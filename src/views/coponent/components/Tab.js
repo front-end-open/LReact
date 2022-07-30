@@ -1,11 +1,11 @@
 /*
- * @LastEditTime: 2022-07-31 00:44:53
+ * @LastEditTime: 2022-07-31 01:15:02
  * @Description: Tabs组件（UI组件）
  * @Date: 2022-07-31 00:11:54
  * @Author: wangshan
  * @LastEditors: wangshan
  */
-import EventnEmitter from 'events'
+import EventEmitter from 'events'
 
 import $ from 'jquery'
 
@@ -19,7 +19,7 @@ const Selector = (classPrefix) => ({
     DISABLE: `${classPrefix}-disable`
 })
 
-export class Tab {
+export class Tabs {
     static defaultOptions = {
         classPrefix: 'tabs',
         activeIndex: 0
@@ -30,7 +30,7 @@ export class Tab {
         this.element = $(this.options.element)
         this.fromIndex = this.options.activeIndex
 
-        this.events = new EventnEmitter()
+        this.events = new EventEmitter()
         this.selector = Selector(this.options.classPrefix)
 
         this._initElement()
@@ -69,6 +69,16 @@ export class Tab {
         })
     }
 
+    _bindTabs() {
+        this.tabs.on('click', (e) => {
+            const $el = $(e.target)
+
+            if (!$el.hasClass(this.selector.DISABLE)) {
+                this.switchTo($el.data('value'))
+            }
+        })
+    }
+
     events() {
         return this.events
     }
@@ -81,7 +91,9 @@ export class Tab {
         const fromIndex = this.fromIndex
         const panelInfo = this._getPanelInfo(toIndex)
 
-        this._switchTo(toIndex)
+        console.log(panelInfo)
+
+        this._switchTabs(toIndex)
         this._switchPanel(panelInfo)
         this.events.emit('change', { toIndex, fromIndex })
 
@@ -104,23 +116,22 @@ export class Tab {
     }
 
     _switchPanel(panelInfo) {
-        panelInfo.fromIndex.attr('aria-hidden', true).hide()
+        panelInfo.fromPanels.attr('aria-hidden', true).hide()
 
         panelInfo.toPanels.attr('aria-hidden', false).show()
     }
 
     _getPanelInfo(toIndex) {
-        // eslint-disable-next-line no-unused-vars
         const panels = this.panels
         const fromIndex = this.fromIndex
 
         let fromPanels, toPanels
 
         if (fromIndex > -1) {
-            fromPanels = this.panels.slice(fromIndex, fromIndex + 1)
+            fromPanels = panels.slice(fromIndex, fromIndex + 1)
         }
 
-        toPanels = this.panels.slice(toIndex, toIndex + 1)
+        toPanels = panels.slice(toIndex, toIndex + 1)
 
         return {
             toIndex,
