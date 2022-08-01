@@ -1,8 +1,9 @@
 import DemoTab from './components/Demo'
 import LifeCycleTemplate from './components/LifeCycle'
+import LifeCycleData from './components/LifeCycle/LifeCycleData'
 
 /*
- * @LastEditTime: 2022-08-01 23:41:58
+ * @LastEditTime: 2022-08-02 00:44:34
  * @Description: 组件深入
  * @Date: 2022-05-10 23:45:19
  * @Author: wangshan
@@ -98,7 +99,11 @@ export default function Copnent() {
             <div className="tip-success">
                 <h2 className="primary">组件生命周期</h2>
 
-                <LifeCycleTemplate msg="good" />
+                {/* <LifeCycleTemplate msg="good" /> */}
+
+                <h2 className="primary">life-cycle-数据过程</h2>
+
+                <LifeCycleData />
             </div>
         </div>
     )

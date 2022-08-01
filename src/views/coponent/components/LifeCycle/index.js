@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-02 00:07:39
+ * @LastEditTime: 2022-08-02 00:17:24
  * @Description: 生命周期模板
  * @Date: 2022-08-01 23:28:33
  * @Author: wangshan
@@ -41,6 +41,12 @@ export default class LifeCycleTemplate extends Component {
         this.setState({
             date: this.state.date + ' Moring'
         }) // 再次触发render渲染
+    }
+
+    // 组件卸载
+    // componentWillUnmount() 会在组件卸载及销毁之前直接调用
+    componentWillUnmount() {
+        console.log('组件销毁')
     }
 
     render() {
