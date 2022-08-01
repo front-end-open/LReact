@@ -1,7 +1,8 @@
 import DemoTab from './components/Demo'
+import LifeCycleTemplate from './components/LifeCycle'
 
 /*
- * @LastEditTime: 2022-07-31 01:00:15
+ * @LastEditTime: 2022-08-01 23:41:58
  * @Description: 组件深入
  * @Date: 2022-05-10 23:45:19
  * @Author: wangshan
@@ -92,6 +93,12 @@ export default function Copnent() {
                 <h2>UI-tab组件使用</h2>
 
                 <DemoTab />
+            </div>
+
+            <div className="tip-success">
+                <h2 className="primary">组件生命周期</h2>
+
+                <LifeCycleTemplate msg="good" />
             </div>
         </div>
     )
