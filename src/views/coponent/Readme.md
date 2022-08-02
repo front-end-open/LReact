@@ -69,11 +69,15 @@
 > 此方法在整个生命周期中，只调用一次
 
 1. componentDidMount [4]
-    > 组件渲染之后调用，如果此时存在 state 更新，会导致两次初始化渲染。
+
+    > 组件渲染,并插入 DOM 树后调用，如果此时存在 state 更新，会导致两次初始化渲染。
+
+    > 应用场景：副作用调用和订阅操作，和 dom 相关的操作都可以在这里处理，同时也可以做数据接口的请求. 这里触发的`state`更新会触发`render`重新调用.
+
 2. componentWillMount [已经被遗弃]
     > 组件渲染之前调用，即是存在 state 更新，组件更新 state， 但只渲染一次.
 3. componentWillUnmount
-    > componentWillUnmount() 会在组件卸载及销毁之前直接调用。在此方法中执行必要的清理操作
+    > componentWillUnmount() 会在组件卸载及销毁之前直接调用。在此方法中执行必要的清理操作.无需在方法中，再做副作用或订阅操作，因为后续组件并不会渲染和挂载。
 4. constructor [1]
 
     > 组件初始化构造, 一般在里边做 state 的赋值, 注意不能做更新 setState
@@ -93,11 +97,32 @@
 
 > 在组件 props 和 state 更新时调用,相关 `Hook`
 
-1. static getDerivedStateFromProps
-2. showComponentUpdate
-3. render
-4. getSnapshotBeforeUpdate
-5. componentDidUpdate
+1.  static getDerivedStateFromProps
+
+    > getDerivedStateFromProps 会在调用 render 方法之前调用，并且在初始挂载及后续更新时都会被调用。它应返回一个对象来更新 state，如果返回 null 则不更新任何内容。
+
+    > 应用场景： state 派生问题
+
+2.  showComponentUpdate
+
+    > 根据 shouldComponentUpdate() 的返回值，判断 React 组件的输出是否受当前 state 或 props 更改的影响。默认行为是 state 每次发生变化组件都会重新渲染. 即该`hook`返回 true。
+
+    > 当 prop 或 state 发生变化时且在渲染之前(render 之前), 该 Hook 会被立即调用。**首次渲染或使用 forceUpdate() 时不会调用该方法。**
+
+    > 注意: 不建议在 shouldComponentUpdate() 中进行深层比较或使用 JSON.stringify()。这样非常影响效率，且会损害性能。
+
+    > 应用场景： state 更新，注意在此方法中调用 setState 会导致内存溢出，如果需要做副作用和订阅操作，需要做条件判断，浅比较 prop 和 state.
+
+3.  render
+4.  getSnapshotBeforeUpdate
+    > getSnapshotBeforeUpdate() 在最近一次渲染输出（提交到 DOM 节点）之前调用。它使得组件能在发生更改之前从 DOM 中捕获一些信息（例如，滚动位置）。此生命周期方法的任何返回值将作为参数传递给 componentDidUpdate()。
+5.  componentDidUpdate
+
+    > commit 阶段`state`或`props`更新后立即调用，此阶段也可以做`DOM`操作。
+
+    > 应用场景: commit 阶段，props 或 state 更新后调用，此阶段也可以做 prop 或 state 比较后，做数据请求。否则如果不比较，则会导致内存溢出，或者副作用或订阅为发起。
+
+    > 注意：如果 shouldComponentUpdate() 返回值为 false，则不会调用 componentDidUpdate()。在此方法中更新 state，会导致组件重新渲染.
 
 ## 错误
 

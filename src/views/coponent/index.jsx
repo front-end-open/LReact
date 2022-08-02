@@ -1,15 +1,17 @@
+import { useState } from 'react'
 import DemoTab from './components/Demo'
 import LifeCycleTemplate from './components/LifeCycle'
 import LifeCycleData from './components/LifeCycle/LifeCycleData'
 
 /*
- * @LastEditTime: 2022-08-02 23:50:10
+ * @LastEditTime: 2022-08-03 00:42:19
  * @Description: 组件深入
  * @Date: 2022-05-10 23:45:19
  * @Author: wangshan
  * @LastEditors: wangshan
  */
 export default function Copnent() {
+    const [desc, setDesc] = useState('today is sad')
     return (
         <div>
             <h3>组件深入</h3>
@@ -103,7 +105,9 @@ export default function Copnent() {
 
                 <h2 className="primary">life-cycle-数据过程</h2>
 
-                <LifeCycleData desc="today is sad" />
+                <button onClick={() => setDesc('ver funny')}>更新prop</button>
+
+                <LifeCycleData desc={desc} />
             </div>
         </div>
     )
