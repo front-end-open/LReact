@@ -64,16 +64,59 @@
 
 -   组件生命周期`hook` \*
 
-## 挂件挂载
+## 挂载卸载[初始化]
 
 > 此方法在整个生命周期中，只调用一次
 
-1. componentDidMount
+1. componentDidMount [4]
     > 组件渲染之后调用，如果此时存在 state 更新，会导致两次初始化渲染。
-2. componentWillMount
+2. componentWillMount [已经被遗弃]
     > 组件渲染之前调用，即是存在 state 更新，组件更新 state， 但只渲染一次.
-
-## 组件卸载
-
-1. componentWillUnmount
+3. componentWillUnmount
     > componentWillUnmount() 会在组件卸载及销毁之前直接调用。在此方法中执行必要的清理操作
+4. constructor [1]
+
+    > 组件初始化构造, 一般在里边做 state 的赋值, 注意不能做更新 setState
+
+    > 应用场景：（1）初始化内部 state; (2)为事件处理函数绑定实例
+
+    > 注意：避免在此方法中，引入副作用和订阅。比如，手动调用 setState 更新 state 操作。涉及副作用和订阅操作，将放置到其他生命周期方法中处理；
+
+    > state 的派生问题【派生于 props】, 如果组件内部 state 依赖父组件的 props, 一般不需要使用 props 重置 state。因为，state 派生 props,只在初始化时有效，如果 props 更新，则 props 并不会影响 state，换句话说，state 不会更新。如果 state 依赖 props 的更新，可以在自定义 react 组件元素上，绑定唯一`key`来强制重置 state. 或者在子组件实例方法上，重置 state。具体操作是为子组件绑定 ref，然后再父组件上调用实例方法，来更新`state`
+
+5. static getDerivedStateFromProps [2]
+    > 初始化和更新 state， props 调用，用户获取当前得 state 和 prop
+6. render [3]
+    > 组件渲染时调用，用于返回渲染内容.在组件 state, props 更新时调用，触发从新渲染
+
+## 数据流 [组件更新]
+
+> 在组件 props 和 state 更新时调用,相关 `Hook`
+
+1. static getDerivedStateFromProps
+2. showComponentUpdate
+3. render
+4. getSnapshotBeforeUpdate
+5. componentDidUpdate
+
+## 错误
+
+> 当渲染过程，生命周期，或子组件构造函数抛出错误时，调用方法
+
+1. static getDerivedStateFromError
+2. componentDitCatch
+
+## 组件实例属性
+
+1. props
+2. state
+
+## class 属性
+
+1. defaultProps
+2. displayName
+
+## 组件实例 APi
+
+1. setState
+2. forceUpdate

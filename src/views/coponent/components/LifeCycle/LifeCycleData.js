@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-02 01:08:50
+ * @LastEditTime: 2022-08-02 23:52:57
  * @Description: 生命周期中的数据过程
  * @Date: 2022-08-02 00:19:52
  * @Author: wangshan
@@ -24,11 +24,11 @@ export default class LifeCycleData extends Component {
     // 目标: 让组件在 props 变化时更新 state。
     // 触发时机： 每次组件渲染都会触发此方法。和UNSAFE_componentWillReceiveProps不同，该方法仅在父组件更新渲染时调用
     static getDerivedStateFromProps(prop, state) {
-        console.log('prop-state更新', prop, state)
+        console.log('初始化更新', prop, state)
     }
 
     shouldComponentUpdate(nextProp, nextState) {
-        console.log('是否更新state-prop', nextProp, nextState)
+        console.log('更新', nextProp, nextState)
         // 返回 false 并不会阻止子组件在 state 更改时重新渲染。
         return true
     }

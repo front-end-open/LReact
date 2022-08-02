@@ -3,7 +3,7 @@ import LifeCycleTemplate from './components/LifeCycle'
 import LifeCycleData from './components/LifeCycle/LifeCycleData'
 
 /*
- * @LastEditTime: 2022-08-02 00:44:34
+ * @LastEditTime: 2022-08-02 23:50:10
  * @Description: 组件深入
  * @Date: 2022-05-10 23:45:19
  * @Author: wangshan
@@ -103,7 +103,7 @@ export default function Copnent() {
 
                 <h2 className="primary">life-cycle-数据过程</h2>
 
-                <LifeCycleData />
+                <LifeCycleData desc="today is sad" />
             </div>
         </div>
     )
