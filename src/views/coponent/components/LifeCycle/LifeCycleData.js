@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-03 01:41:25
+ * @LastEditTime: 2022-08-03 22:56:52
  * @Description: 生命周期中的数据过程
  * @Date: 2022-08-02 00:19:52
  * @Author: wangshan
@@ -51,6 +51,7 @@ export default class LifeCycleData extends Component {
 
     // 该方法已被启用，采用getSnapshotBeforeUpdate替换
     // componentWillUpdate() {}
+    // pre-commit时调用，此处用于在数据更新渲染之后，DOM挂载之前调用，做一些DOM信息获取
     getSnapshotBeforeUpdate(prevProp, prevState) {
         console.log('渲染挂载之前', prevProp, prevState)
         return null
