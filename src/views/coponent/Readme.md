@@ -86,7 +86,7 @@
 
     > 注意：避免在此方法中，引入副作用和订阅。比如，手动调用 setState 更新 state 操作。涉及副作用和订阅操作，将放置到其他生命周期方法中处理；
 
-    > state 的派生问题【派生于 props】, 如果组件内部 state 依赖父组件的 props, 一般不需要使用 props 重置 state。因为，state 派生 props,只在初始化时有效，如果 props 更新，则 props 并不会影响 state，换句话说，state 不会更新。如果 state 依赖 props 的更新，可以在自定义 react 组件元素上，绑定唯一`key`来强制重置 state. 或者在子组件实例方法上，重置 state。具体操作是为子组件绑定 ref，然后再父组件上调用实例方法，来更新`state`
+    > state 的派生问题【派生于 props】, 如果组件内部 state 依赖父组件的 props, 一般不需要使用 props 重置 state。因为，state 派生 props,只在初始化时有效，如果 props 更新，则 props 并不会影响 state，换句话说，state 不会更新。如果 state 依赖 props 的更新，可以在自定义 react 组件元素上，绑定唯一`key`来强制重置 state. 或者在子组件实例方法上，重置 state。具体操作是为子组件绑定 ref，然后再父组件上调用实例方法，来更新`state`;
 
 5. static getDerivedStateFromProps [2]
     > 初始化和更新 state， props 调用，用户获取当前得 state 和 prop
@@ -99,7 +99,11 @@
 
 1.  static getDerivedStateFromProps
 
-    > getDerivedStateFromProps 会在调用 render 方法之前调用，并且在初始挂载及后续更新时都会被调用。它应返回一个对象来更新 state，如果返回 null 则不更新任何内容。
+    > getDerivedStateFromProps 会在调用 render 方法之前调用，并且在初始挂载及后续更新时都会被调用。它应返回一个对象来更新 state，如果返回 null 则不更新任何内容。不支持实例`this`的访问. 因此也无法调用 setState 方法进行状态更新
+
+    > 对于老的 api 是可以访问 this 进行 setState 更新的，但是不建议，因为会导致内存泄露
+
+    > 此 api 中更新 state 是无法，触发 re-render 的。而是会进行 state 合并。并且此阶段的 state 更新，无法在 shouldComponentUpdate，getSnapshotBeforeUpdate(componentWillUpdate)，中无法获取更新后的值。只能在 render 和 componentDitUpdate 中访问更新后的值。
 
     > 应用场景： state 派生问题
 
@@ -112,6 +116,8 @@
     > 注意: 不建议在 shouldComponentUpdate() 中进行深层比较或使用 JSON.stringify()。这样非常影响效率，且会损害性能。
 
     > 应用场景： state 更新，注意在此方法中调用 setState 会导致内存溢出，如果需要做副作用和订阅操作，需要做条件判断，浅比较 prop 和 state.
+
+    > 此 API 返回值所决定的相关 hook-api。 componentWill
 
 3.  render
 4.  getSnapshotBeforeUpdate
@@ -145,3 +151,25 @@
 
 1. setState
 2. forceUpdate
+
+## FAQ
+
+### state 派生
+
+    > state 可从 props 取得数据（可理解为派生）. 这种派生也是 react 单向数据流所引发的应用场景。所以也就涉及到受控组件和非受控组件。
+
+**应用规则**
+
+> 常在 `getDerviedStateFromProps`[遗弃 componentWillReceiveProps 该方法只在父组件更新时调用] 中，当 props 或者 state 更新时，做数据同步。
+
+**派生所引发的问题**
+
+> (1)直接复制 props 到 state; props (2)和 state 不一致更新就 state
+
+**场景复现**
+
+> 保守使用派生 state 规则: (1) 如果只是缓存基于 props 计算的结果，可考虑使用 memoization。（2）不要频繁更新组件 state.
+
+#### 派生所引发的 bug
+
+> 涉及派生，就关联到 prop。而这个恰恰又和 react 组件的设计模式挂钩。即受控组件和非受控组件

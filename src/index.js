@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-05-13 22:55:03
+ * @LastEditTime: 2022-08-04 01:14:28
  * @Description: 应用打包入口文件
  * @Date: 2022-03-15 00:37:34
  * @Author: wangshan
@@ -16,16 +16,16 @@ import ErrorBoundary from './components/ErrorBoundary'
 import '@/style/global/index.scss'
 
 ReactDOM.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <ErrorBoundary>
-                <Provider store={store}>
-                    <App />
-                </Provider>
-            </ErrorBoundary>
-        </BrowserRouter>
-    </React.StrictMode>,
+    // <React.StrictMode>
+    <BrowserRouter>
+        <ErrorBoundary>
+            <Provider store={store}>
+                <App />
+            </Provider>
+        </ErrorBoundary>
+    </BrowserRouter>,
+    // </React.StrictMode>,
     document.querySelector('#root')
-)
+)   
 
 // BaseCounter.subscribe(render) // redux基础库实现状态管理，并订阅视图更新

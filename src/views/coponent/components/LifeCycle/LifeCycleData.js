@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-03 22:56:52
+ * @LastEditTime: 2022-08-05 00:12:48
  * @Description: 生命周期中的数据过程
  * @Date: 2022-08-02 00:19:52
  * @Author: wangshan
@@ -35,38 +35,48 @@ export default class LifeCycleData extends Component {
         //     msg: 'hello world'
         // })
         return { good: 222 }
+        // return null
     }
+    // UNSAFE_componentWillReceiveProps(props, state) {
+    //     console.log('更新', props, state)
+    //     this.setState({
+    //         msg: 'hello world'
+    //     })
+    // }
 
     shouldComponentUpdate(nextProp, nextState) {
-        console.log('更新', nextProp, nextState)
+        console.log('更新', this.state)
         // 返回 false 并不会阻止子组件在 state 更改时重新渲染。
         // if (nextProp.desc != this.props.desc) {
         //     this.setState({
         //         msg: 'hello world'
         //     })
         // }
-
         return true
     }
-
     // 该方法已被启用，采用getSnapshotBeforeUpdate替换
     // componentWillUpdate() {}
     // pre-commit时调用，此处用于在数据更新渲染之后，DOM挂载之前调用，做一些DOM信息获取
     getSnapshotBeforeUpdate(prevProp, prevState) {
-        console.log('渲染挂载之前', prevProp, prevState)
+        console.log('渲染挂载之前', prevProp, prevState, this.state)
         return null
     }
+    // UNSAFE_componentWillUpdate(prevProp, prevState) {
+    //     console.log('渲染挂载之前', prevProp, prevState)
+
+    //     return null
+    // }
 
     componentDidUpdate(prevProp, prevState, snapshot) {
-        console.log('更新后调用', prevProp, prevState, snapshot)
+        console.log('更新后调用', prevProp, prevState, snapshot, this.state)
 
         // componentDidUpdate调用setState会触发state内存溢出
         // componentDidUpdate内的state更新，需要使用条件语句包裹。否则循环调度更新会导致内存溢出
-        if (prevProp.desc !== this.props.desc) {
-            this.setState({
-                msg: 'hello world'
-            })
-        }
+        // if (prevProp.desc !== this.props.desc) {
+        //     this.setState({
+        //         msg: 'hello world'
+        //     })
+        // }
     }
 
     componentDidMount() {
@@ -78,7 +88,7 @@ export default class LifeCycleData extends Component {
     }
 
     render() {
-        console.log('render渲染')
+        console.log('render渲染', this.state)
         return (
             <React.Fragment>
                 <h2>hello world</h2>
