@@ -27,3 +27,10 @@
 | target                 | DOMEventTarget | xxxx                                                                              | xxxx                   |
 | timeStamp              |     number     | xxxx                                                                              | xxxx                   |
 | type                   |     string     | xxxx                                                                              | xxxx                   |
+
+#### 合成事件绑定方式
+
+1. 驼峰命名方式，传入 DOM 属性方式，传入事件名字
+2. js 表达式形式传入属性值. DOM 原生事件绑定方式中，需要传入字符串.
+
+####
