@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-07-28 22:27:55
+ * @LastEditTime: 2022-08-06 16:47:37
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -132,6 +132,19 @@ let router = [
         menuname: 'JSX/DOM相关',
         component: AsyncComponent(
             import(/*webpackChunkName: "jsxdom"*/ '@/views/jsxdom/index')
+        ),
+        meta: {
+            isIndex: false
+        }
+    },
+    {
+        path: '/event',
+        name: 'EventSystem',
+        menuname: '事件系统',
+        component: AsyncComponent(
+            import(
+                /*webpackChunkName: "EventSystem"*/ '@/views/EventSystem/index'
+            )
         ),
         meta: {
             isIndex: false
