@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-07 20:25:09
+ * @LastEditTime: 2022-08-08 01:50:43
  * @Description: 事件系统
  * @Date: 2022-08-06 16:43:43
  * @Author: wangshan
@@ -37,13 +37,13 @@ export default class EventSystem extends Component {
                 <div>
                     <h3>原生合成事件结合</h3>
 
-                    {/* <ScanQrModal /> */}
+                    <ScanQrModal />
                 </div>
 
                 <div>
                     <h3>原生事件实现扫码</h3>
 
-                    <ShowModalQR2 />
+                    {/* <ShowModalQR2 /> */}
                 </div>
             </div>
         )

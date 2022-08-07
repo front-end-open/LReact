@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-07 19:34:55
+ * @LastEditTime: 2022-08-08 01:51:25
  * @Description: 合成和原生混用
  * @Date: 2022-08-06 23:08:45
  * @Author: wangshan
@@ -16,7 +16,7 @@ class ScanQrModal extends Component {
     }
 
     handleClick = (e) => {
-        console.log('同级触发1')
+        console.log('同级触发1', e)
         e.preventDefault()
         e.stopPropagation() // 阻止body冒泡触发
         this.setState({
@@ -27,7 +27,7 @@ class ScanQrModal extends Component {
     handleClickQr(e) {
         // e.preventDefault()
         e.stopPropagation() // 同样通过阻止冒泡机制
-        console.log('同级触发2')
+        console.log('同级触发2', e)
     }
 
     handleActive = () => {
