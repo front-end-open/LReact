@@ -1,13 +1,15 @@
 /*
- * @LastEditTime: 2022-08-06 22:28:22
+ * @LastEditTime: 2022-08-06 23:28:16
  * @Description: 事件系统
  * @Date: 2022-08-06 16:43:43
  * @Author: wangshan
  * @LastEditors: wangshan
  */
 import { Component } from 'react'
+import ScanQrModal from './components/CompositionNative'
 
 import BubbleOrCapture from './components/EventProcess'
+import Native from './components/NativeEvent'
 // import Toggle from './components/Toggle'
 
 export default class EventSystem extends Component {
@@ -23,6 +25,18 @@ export default class EventSystem extends Component {
                     <h2>事件执行阶段</h2>
 
                     <BubbleOrCapture />
+                </div>
+
+                <div>
+                    <h3>原生事件调用</h3>
+
+                    <Native />
+                </div>
+
+                <div>
+                    <h3>原生合成事件结合</h3>
+
+                    <ScanQrModal />
                 </div>
             </div>
         )
