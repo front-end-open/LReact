@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-07-27 22:29:42
+ * @LastEditTime: 2022-08-10 00:17:56
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -68,7 +68,24 @@ module.exports = function (options) {
                                 {
                                     loader: 'css-loader',
                                     options: {
-                                        importLoaders: 1 // 0 => 无 loader(默认); 1 => postcss-loader; 2 => postcss-loader, sass-loader
+                                        importLoaders: 1, // 0 => 无 loader(默认); 1 => postcss-loader; 2 => postcss-loader, sass-loader
+                                        modules: {
+                                            // css 模块设置
+                                            mode: 'local',
+                                            auto: true,
+                                            exportGlobals: true,
+                                            localIdentName:
+                                                '[path][name]__[local]--[hash:base64:5]',
+                                            localIdentContext: path.resolve(
+                                                __dirname,
+                                                'src'
+                                            ),
+                                            localIdentHashSalt:
+                                                'my-custom-hash',
+                                            namedExport: true,
+                                            exportLocalsConvention: 'camelCase',
+                                            exportOnlyLocals: false
+                                        }
                                     }
                                 },
                                 'postcss-loader'
