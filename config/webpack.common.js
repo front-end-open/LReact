@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-10 00:38:27
+ * @LastEditTime: 2022-08-10 00:43:17
  * @Description: 公共配置文件
  * @Date: 2022-03-15 00:33:46
  * @Author: wangshan
@@ -107,7 +107,12 @@ module.exports = function (options) {
                                 {
                                     loader: 'css-loader',
                                     options: {
-                                        importLoaders: 1 // 查询参数 importLoaders，用于配置「css-loader 作用于 @import 的资源之前」有多少个 loader
+                                        importLoaders: 2, // 查询参数 importLoaders，用于配置「css-loader 作用于 @import 的资源之前」有多少个 loader
+                                        modules: {
+                                            auto: true,
+                                            localIdentName:
+                                                '[path][name]__[local]--[hash:base64:5]'
+                                        }
                                     }
                                 },
                                 'postcss-loader',

@@ -1,11 +1,11 @@
 /*
- * @LastEditTime: 2022-08-10 00:39:48
+ * @LastEditTime: 2022-08-10 00:41:25
  * @Description: CSS-module
  * @Date: 2022-08-09 23:15:18
  * @Author: wangshan
  * @LastEditors: wangshan
  */
-import style from './index.css'
+import style from './index.scss'
 
 console.log(style)
 
