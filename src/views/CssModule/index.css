@@ -1,0 +1,6 @@
+.wrap {
+    height: 100%;
+}
+.wrap > .title {
+    font-weight: 400;
+}
