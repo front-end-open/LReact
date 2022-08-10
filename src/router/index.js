@@ -138,11 +138,25 @@ let router = [
         }
     },
     {
+
         path: '/cssmodule',
         name: 'CssModule',
         menuname: 'CssModule',
         component: AsyncComponent(
             import(/*webpackChunkName: "CssModule"*/ '@/views/CssModule/index')
+        ),
+        meta: {
+          isIndex: false
+        }
+    },
+    {
+        path: '/event',
+        name: 'EventSystem',
+        menuname: '事件系统',
+        component: AsyncComponent(
+            import(
+                /*webpackChunkName: "EventSystem"*/ '@/views/EventSystem/index'
+            )
         ),
         meta: {
             isIndex: false
