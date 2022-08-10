@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-06 16:47:37
+ * @LastEditTime: 2022-08-09 23:17:19
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -135,6 +135,18 @@ let router = [
         ),
         meta: {
             isIndex: false
+        }
+    },
+    {
+
+        path: '/cssmodule',
+        name: 'CssModule',
+        menuname: 'CssModule',
+        component: AsyncComponent(
+            import(/*webpackChunkName: "CssModule"*/ '@/views/CssModule/index')
+        ),
+        meta: {
+          isIndex: false
         }
     },
     {
