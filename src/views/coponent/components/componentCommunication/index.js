@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-11 00:33:30
+ * @LastEditTime: 2022-08-11 00:36:19
  * @Description: 组件通信
  * @Date: 2022-08-10 01:05:51
  * @Author: wangshan
@@ -31,6 +31,10 @@ export default function Communication() {
                 需要注意：
                 props单向数据流的通信模式，或者说，context的方式也是逻辑组织点比较明细的组件通信方式，相比
                 自定义事件，自定义事件的方式很容易导致逻辑混乱.
+            </p>
+
+            <p className="tip-content">
+                关于高阶组件: 组件逻辑复用；组件通信
             </p>
         </div>
     )
