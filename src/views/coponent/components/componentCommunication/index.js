@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-12 00:47:19
+ * @LastEditTime: 2022-08-12 00:52:21
  * @Description: 组件通信
  * @Date: 2022-08-10 01:05:51
  * @Author: wangshan
@@ -34,6 +34,18 @@ class Communication extends Component {
                 checked: false
             }
         ]
+    }
+
+    itemChange(entry) {
+        console.log(entry)
+    }
+
+    componentDidMount() {
+        events.on('ItemChange', this.itemChange)
+    }
+
+    componentWillUnmount() {
+        events.removeListener(this.itemChange)
     }
     render() {
         return (
@@ -70,7 +82,7 @@ class Communication extends Component {
 
                 <List
                     list={this.state.list}
-                    handleItemChange={(entry, s) => console.log(entry, s)}
+                    // handleItemChange={(entry, s) => console.log(entry, s)}
                 />
             </div>
         )
