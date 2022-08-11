@@ -1,11 +1,38 @@
 /*
- * @LastEditTime: 2022-08-11 00:36:19
+ * @LastEditTime: 2022-08-12 00:06:17
  * @Description: 组件通信
  * @Date: 2022-08-10 01:05:51
  * @Author: wangshan
  * @LastEditors: wangshan
  */
+import { useState } from 'react'
+
+import List from './List'
+
 export default function Communication() {
+    const [list, setList] = useState([
+        {
+            text: 'apple',
+            checked: false
+        },
+        {
+            text: 'banner',
+            checked: false
+        },
+        {
+            text: 'pech',
+            checked: false
+        },
+        {
+            text: 'book',
+            checked: false
+        },
+        {
+            text: 'water',
+            checked: false
+        }
+    ])
+
     return (
         <div className="tip-content">
             <h3 className="primary">组件通信</h3>
@@ -34,6 +61,11 @@ export default function Communication() {
             </p>
 
             <p className="tip-content">关于高阶组件: 组件逻辑复用；组件通信</p>
+
+            <List
+                list={list}
+                handleItemChange={(entry, s) => console.log(entry, s)}
+            />
         </div>
     )
 }
