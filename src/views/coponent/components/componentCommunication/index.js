@@ -33,9 +33,7 @@ export default function Communication() {
                 自定义事件，自定义事件的方式很容易导致逻辑混乱.
             </p>
 
-            <p className="tip-content">
-                关于高阶组件: 组件逻辑复用；组件通信
-            </p>
+            <p className="tip-content">关于高阶组件: 组件逻辑复用；组件通信</p>
         </div>
     )
 }
