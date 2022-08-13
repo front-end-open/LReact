@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-11 00:11:46
+ * @LastEditTime: 2022-08-14 01:18:29
  * @Description: 组件深入
  * @Date: 2022-05-10 23:45:19
  * @Author: wangshan
@@ -9,6 +9,7 @@ import { useState } from 'react'
 
 import Communication from './components/componentCommunication/index'
 import DemoTab from './components/Demo'
+import HocComponent from './components/Hoc'
 // import LifeCycleTemplate from './components/LifeCycle'
 import LifeCycleData from './components/LifeCycle/LifeCycleData'
 
@@ -117,6 +118,8 @@ export default function Copnent() {
 
                 <Communication />
             </div>
+
+            <HocComponent />
         </div>
     )
 }
