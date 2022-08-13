@@ -44,6 +44,7 @@
     },
     "dependencies": {
         "@reduxjs/toolkit": "^1.8.0",
+        "axios": "^0.27.2",
         "babel-plugin-syntax-dynamic-import": "^6.18.0",
         "classnames": "^2.3.1",
         "jquery": "^3.6.0",
