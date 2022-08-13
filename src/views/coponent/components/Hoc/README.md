@@ -131,3 +131,7 @@ class myComponent extend Component {
 
 export default myContainer(myComponent);
 ```
+
+4. 使用其他元素包裹`WrappedComponent`
+    > 这既是添加样式；也是为了布局
+
