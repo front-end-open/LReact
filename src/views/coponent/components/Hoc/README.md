@@ -78,3 +78,56 @@ const HOCComponent = (WrappedComponent) => {
     }
 }
 ```
+
+3. `state`抽象
+    > 通过使用高阶组件，将原始组件的内部业务状态`state`和`props`抽离到外部高阶组件上，有效把被包裹组件抽离为展示型组件，或者可以称之为受控组件.
+
+```js
+import React, { Component } from 'react'
+
+const myContainer = (WrappedComponent) => {
+    return class extends Component {
+        constructor(props) {
+            super(props)
+            this.state = {
+                name: ''
+            }
+
+            this.onNameChange = this.onNameChange.bind(this)
+        }
+
+        onNameChange(event) {
+            this.setState({
+                name: event.target.value
+            })
+        }
+
+        render() {
+            const newProps = {
+                name: {
+                    value: this.state.name,
+                    onChange: this.onNameChange
+                }
+            }
+
+            return <WrappedComponent {...this.props} {...newProps} />
+        }
+    }
+}
+
+export default myContainer
+```
+
+使用受控的`input`
+
+```js
+import React, { Component } from 'react'
+
+class myComponent extend Component {
+    render() {
+        return <input name="name" {...this.props.name} />
+    }
+}
+
+export default myContainer(myComponent);
+```
