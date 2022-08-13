@@ -20,6 +20,9 @@
 
 **属性代理**
 
+> 高阶组件生命周期调用顺序桶，堆栈调用。
+> 从功能上讲，高阶组件的桶`mixin`作用一样，可以做到控制，`props`, 通过 `refs`使用引用， 抽象`state`和使用其他元素包裹被原始元素(React Element)
+
 1. 通过包裹组件来向原始组件传递 props 和 state 等手段
 
 伪代码: 高阶组件`HOCComponent` 封装
@@ -47,4 +50,31 @@ class myComponent extend React.Component {
 
 // 使用 myComponent 组件
 export default HOCComponent(myComponent)
+```
+
+2. 控制`props`
+
+    > 对于被包裹组件接收的`props`， 可以在其内部做增加，删除，编辑。但是需要注意，需要小心编辑和删除。使用高阶组件的 props 应尽可能避免重名。
+
+3. 通过`refs`使用引用
+    > 在高阶组件内部，使用被包裹组件实例引用
+
+```js
+const HOCComponent = (WrappedComponent) => {
+    proc(wraped) { // 传递被包裹组件实例
+        // 使用被包裹组件ref引用
+        wraped.method()
+    }
+    return class extends Component {
+
+        render() {
+            const props = Object.assign({}, this.props, {
+                ref: this.proc.bind(this)
+            })
+            // 劫持外层高阶组件传入的props，再次传入到原始组件
+            // 想被包裹传递ref引用回调
+            return <WrappedComponent {...props} />
+        }
+    }
+}
 ```
