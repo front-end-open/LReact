@@ -136,3 +136,15 @@ export default myContainer(myComponent);
     > 这既是添加样式；也是为了布局
 
 > 小结： mixin 与 hoc 区别。就难 hoc 来说，hoc 更符合函数式编程思维，输入到输出的单一流特点，即透明，不可变更，无副作用特性。在`react`中，使用高阶组件的`WrappedComponent`是不会感受到高阶组件的存在的，也就是原始组件内部封装不受高阶组件影响，同时两者的结合还能为原始组件增强功能，比较明显的体现了高阶组件的无侵入特性；而相对于`mixin`来说，`mixin`是通过抽离组价间功能逻辑，然后再向需要的组件传入此公共`mixin`, 这就明显加重了组件的逻辑，变得维护复杂度变高，具有一定的侵入性。
+
+> 此模式下，生命周期调度顺序： didmount--> HOC didmount --> (HOCs didmount) --> (HOCs unmount) ---> HOC unmount --> unmount
+
+**反向继承**
+
+> 高阶组件继承组价反向继承于传入组件， 这样所有的调用都会反过来，原先的生命周期调度顺序会采用队列形式。
+
+> 此模式下，生命周期调度顺序: didmount --> HOC didmount --> (HOCs didmount) --> will unmount --> HOC will unmount --> (HOCs will unmount)
+
+> 此模式下，高阶组件具有传入组件的引用，可以调用传入组件的方法，stae, props 生命周期和 render 等。
+
+> 但是注意： 此模式下不能保正，完整得子组件树被解析。
