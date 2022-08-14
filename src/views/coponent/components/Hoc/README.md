@@ -148,3 +148,7 @@ export default myContainer(myComponent);
 > 此模式下，高阶组件具有传入组件的引用，可以调用传入组件的方法，stae, props 生命周期和 render 等。
 
 > 但是注意： 此模式下不能保正，完整得子组件树被解析。
+
+> 两大特性： 渲染劫持;控制 state
+
+1. 渲染劫持
