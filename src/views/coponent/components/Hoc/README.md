@@ -152,3 +152,36 @@ export default myContainer(myComponent);
 > 两大特性： 渲染劫持;控制 state
 
 1. 渲染劫持
+
+    > 继承包裹组件，通过调用 render 方法，来实现修改源组件的输出
+
+2. 控制 state
+
+    > 当使用反向继承式，高阶组件内部，本身就具有了操作元组件的引用`this`.这个时候可以直接访问 state,和 props
+    > 应当避免对源组件的 state 和 props 做过渡的读取和新增加。避免导致复制的逻辑。新增是，可以重命名。避免导冲突。
+
+**组件命名**
+
+> 使用高阶组件后，会丢失元组件的名字，不方便调试。可以通过如下方法获取组件名字，来为高阶组件设置名字`displayName`
+
+```js
+function getDisplayName(WrappedComponent) {
+    return WrappedComponent.displayName || WrappedComponent.name || 'Component'
+}
+```
+
+或者使用`recompose`库
+
+**组件参数**
+
+> 如果需要为高阶组件函数调用传递参数，可以在原有的高阶函数上，在套一层函数调度，用于接收参数，内部还是返回高阶函数的调度方式
+
+```js
+function HOCfactoryFactory(...params) {
+    return function HOCFactory(WrappedComponent) {
+        return class extends Component {
+            ....
+        }
+    }
+}
+```
