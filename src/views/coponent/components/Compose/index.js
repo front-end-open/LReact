@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-17 01:39:05
+ * @LastEditTime: 2022-08-18 01:39:03
  * @Description: 输入搜索框
  * @Date: 2022-08-16 23:20:07
  * @Author: wangshan
@@ -37,6 +37,24 @@ class SelectInput extends Component {
                     />
                     <Icon className={isActive} name="angle-down" />
                 </div>
+            </div>
+        )
+    }
+}
+
+class SearchInput extends Component {
+    static displayName = 'SearchInput'
+
+    render() {
+        const { keyword, onSearch } = this.props
+        return (
+            <div>
+                <input
+                    type={'text'}
+                    value={keyword}
+                    onChange={onSearch}
+                    placeholder={placeholder}
+                ></input>
             </div>
         )
     }
