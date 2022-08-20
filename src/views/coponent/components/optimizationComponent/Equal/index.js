@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-21 01:41:40
+ * @LastEditTime: 2022-08-21 02:35:26
  * @Description:
  * @Date: 2022-08-20 19:13:31
  * @Author: wangshan
@@ -10,7 +10,7 @@ import { Component, PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 import { debounce } from '@/utils/helper'
-class List extends PureComponent {
+class List extends Component {
     static propTypes = {
         list: PropTypes.array,
         control: PropTypes.object
@@ -39,7 +39,7 @@ class List extends PureComponent {
 }
 
 const withList = (WrappedComponent) => {
-    return class extends Component {
+    return class extends PureComponent {
         static displayName =
             WrappedComponent.displayName || WrappedComponent.name || 'Component'
 
@@ -100,6 +100,8 @@ const withList = (WrappedComponent) => {
                         list={this.state.list}
                         {...this.props}
                     />
+
+                    <Test />
                 </div>
             )
         }
@@ -107,3 +109,14 @@ const withList = (WrappedComponent) => {
 }
 
 export default withList(List)
+
+// 次组价不依赖任何外部状态，如果不做比较更新，将会在父组件更新时，一直触发更新。这里优化的手段时，采用PureComponent类声明。
+class Test extends PureComponent {
+    render() {
+        return (
+            <div className="tip-error">
+                <h1>测试更新</h1>
+            </div>
+        )
+    }
+}
