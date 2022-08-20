@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 /*
- * @LastEditTime: 2022-08-15 00:31:10
+ * @LastEditTime: 2022-08-14 01:44:45
  * @Description: 获取焦点
  * @Date: 2022-08-14 01:20:13
  * @Author: wangshan
@@ -27,14 +27,6 @@ export const GetFocus = (WrappedComponent) => {
             if (this.props.isFocus) {
                 el.focus()
             }
-        }
-
-        componentDidMount() {
-            console.log('HOC didmount')
-        }
-
-        componentWillUnmount() {
-            console.log('HOC unmount')
         }
 
         render() {
