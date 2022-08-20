@@ -26,6 +26,40 @@
 
 > 通过测试发现，如果 props 中包含引用类型，那么在父子组中，向下传入引用。如果更新引用类型的值（引用地址不变的情况），子组件是不会更新的。相反，如果子组件时通过`Compoent`声明的，在不手动比较的情况下，组件是默认一直更新的。
 
+关于纯组件更新原理：引用比较，而非值比较。
+
+```js
+// 伪代码
+handleChange(e) {
+    console.log(e)
+    this.setState((pre) => {
+        let control = pre.control
+        control = {
+            // 这里从新变更引用地址
+            ...control,
+            value: e.target.value
+        }
+
+        return {
+            control
+        }
+    })
+}
+
+handleClick() {
+    console.log('add', this.state.list)
+    this.setState((preState) => {
+        const list = [...preState.list] // 这里从新变更引用地址
+        list.push({ label: this.state.control.value })
+
+        return {
+            list
+        }
+    })
+}
+
+```
+
 #### 使用 PureRender
 
 > react v18 提出 PureCompoent 基础组件类，在声明类组件的时候，可以直接继承此基础类，来实习那 Pure 组件。
