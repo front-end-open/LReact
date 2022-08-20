@@ -136,3 +136,52 @@ export default myContainer(myComponent);
     > 这既是添加样式；也是为了布局
 
 > 小结： mixin 与 hoc 区别。就难 hoc 来说，hoc 更符合函数式编程思维，输入到输出的单一流特点，即透明，不可变更，无副作用特性。在`react`中，使用高阶组件的`WrappedComponent`是不会感受到高阶组件的存在的，也就是原始组件内部封装不受高阶组件影响，同时两者的结合还能为原始组件增强功能，比较明显的体现了高阶组件的无侵入特性；而相对于`mixin`来说，`mixin`是通过抽离组价间功能逻辑，然后再向需要的组件传入此公共`mixin`, 这就明显加重了组件的逻辑，变得维护复杂度变高，具有一定的侵入性。
+
+> 此模式下，生命周期调度顺序： didmount--> HOC didmount --> (HOCs didmount) --> (HOCs unmount) ---> HOC unmount --> unmount
+
+**反向继承**
+
+> 高阶组件继承组价反向继承于传入组件， 这样所有的调用都会反过来，原先的生命周期调度顺序会采用队列形式。
+
+> 此模式下，生命周期调度顺序: didmount --> HOC didmount --> (HOCs didmount) --> will unmount --> HOC will unmount --> (HOCs will unmount)
+
+> 此模式下，高阶组件具有传入组件的引用，可以调用传入组件的方法，stae, props 生命周期和 render 等。
+
+> 但是注意： 此模式下不能保正，完整得子组件树被解析。
+
+> 两大特性： 渲染劫持;控制 state
+
+1. 渲染劫持
+
+    > 继承包裹组件，通过调用 render 方法，来实现修改源组件的输出
+
+2. 控制 state
+
+    > 当使用反向继承式，高阶组件内部，本身就具有了操作元组件的引用`this`.这个时候可以直接访问 state,和 props
+    > 应当避免对源组件的 state 和 props 做过渡的读取和新增加。避免导致复制的逻辑。新增是，可以重命名。避免导冲突。
+
+**组件命名**
+
+> 使用高阶组件后，会丢失元组件的名字，不方便调试。可以通过如下方法获取组件名字，来为高阶组件设置名字`displayName`
+
+```js
+function getDisplayName(WrappedComponent) {
+    return WrappedComponent.displayName || WrappedComponent.name || 'Component'
+}
+```
+
+或者使用`recompose`库
+
+**组件参数**
+
+> 如果需要为高阶组件函数调用传递参数，可以在原有的高阶函数上，在套一层函数调度，用于接收参数，内部还是返回高阶函数的调度方式
+
+```js
+function HOCfactoryFactory(...params) {
+    return function HOCFactory(WrappedComponent) {
+        return class extends Component {
+            ....
+        }
+    }
+}
+```

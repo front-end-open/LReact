@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-14 01:18:29
+ * @LastEditTime: 2022-08-19 01:27:57
  * @Description: 组件深入
  * @Date: 2022-05-10 23:45:19
  * @Author: wangshan
@@ -12,6 +12,7 @@ import DemoTab from './components/Demo'
 import HocComponent from './components/Hoc'
 // import LifeCycleTemplate from './components/LifeCycle'
 import LifeCycleData from './components/LifeCycle/LifeCycleData'
+import { Optimization } from './components/optimizationComponent'
 
 export default function Copnent() {
     const [desc, setDesc] = useState('today is sad')
@@ -120,6 +121,11 @@ export default function Copnent() {
             </div>
 
             <HocComponent />
+            <div className="tip-content">
+                <h2 className="primary">组件性能优化</h2>
+
+                <Optimization />
+            </div>
         </div>
     )
 }
