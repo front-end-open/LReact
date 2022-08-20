@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 /*
- * @LastEditTime: 2022-08-19 01:50:21
+ * @LastEditTime: 2022-08-20 17:48:32
  * @Description: PureRender使用
  * @Date: 2022-08-19 01:13:24
  * @Author: wangshan
@@ -44,30 +44,26 @@ const withCount = (WrappedComponent) => {
                 count: 0
             }
             this.handleAdd = this.handleAdd.bind(this)
-            // this.handleCurry = this.handleCurry.bind(this)
-            // this.handleAdd.bind(this)
+            this.handleCurry = this.handleCurry.bind(this)
         }
-
         handleCurry() {
-            console.log(this)
-            // this.setState((preState) => {
-            //     return {
-            //         count: preState.count--
-            //     }
-            // })
+            if (this.state.count <= 0) return
+
+            this.setState((preState) => {
+                let pcount = preState.count
+                return {
+                    count: pcount - 1
+                }
+            })
         }
         handleAdd() {
             console.log(this)
             this.setState((preState) => {
                 let pcount = preState.count
                 return {
-                    count: 10
+                    count: pcount + 1
                 }
             })
-            // let preState = this.state.count
-            // this.setState({
-            //     count: preState++
-            // })
         }
 
         render() {
