@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 /*
- * @LastEditTime: 2022-08-20 18:36:26
+ * @LastEditTime: 2022-08-20 19:13:04
  * @Description: PureRender使用
  * @Date: 2022-08-19 01:13:24
  * @Author: wangshan
@@ -89,3 +89,9 @@ const withCount = (WrappedComponent) => {
 }
 
 export default withCount(Count)
+
+// refrence isEqual
+
+
+
+

@@ -23,3 +23,7 @@
 > 通常对于组件的性能的优化在 shouldComponent 中，这里边主要是对`props`和`state`做浅比较。不建议做深比较，耗费资源。
 
 > PureRender 对 object 类型只做了引用比较，并没有做值比较.其源码中也只对 pureRender 做了浅层比较，并没有深比较。
+
+#### 使用 PureRender
+
+> react v18 提出 PureCompoent 基础组件类，在声明类组件的时候，可以直接继承此基础类，来实习那 Pure 组件。
