@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 /*
- * @LastEditTime: 2022-08-20 17:48:32
+ * @LastEditTime: 2022-08-20 18:36:26
  * @Description: PureRender使用
  * @Date: 2022-08-19 01:13:24
  * @Author: wangshan
@@ -37,7 +37,10 @@ class Count extends PureComponent {
 }
 
 const withCount = (WrappedComponent) => {
-    return class extends Component {
+    class doneCount extends Component {
+        static dispalyName =
+            WrappedComponent.dispalyName || WrappedComponent.name || 'Component'
+
         constructor(props) {
             super(props)
             this.state = {
@@ -68,16 +71,21 @@ const withCount = (WrappedComponent) => {
 
         render() {
             return (
-                <WrappedComponent
-                    {...this.props}
-                    add={this.handleAdd}
-                    count={this.state.count}
-                    curry={this.handleCurry}
-                />
+                <div
+                    style={{ width: '500px', height: '400px' }}
+                    className="tip-success"
+                >
+                    <WrappedComponent
+                        {...this.props}
+                        add={this.handleAdd}
+                        count={this.state.count}
+                        curry={this.handleCurry}
+                    />
+                </div>
             )
         }
     }
-    // return doneCount
+    return doneCount
 }
 
 export default withCount(Count)
