@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-21 01:06:09
+ * @LastEditTime: 2022-08-21 01:27:40
  * @Description:
  * @Date: 2022-03-19 03:36:03
  * @Author: wangshan
@@ -21,14 +21,17 @@ export function toFahrenheit(celsius) {
 }
 
 export function debounce(func, delay) {
-    let timer
+    let timer, result
     return function () {
         let args = arguments
+        console.log(args)
         if (timer) {
-            timer = null
-            timer = setTimeout(() => {
-                func.bind(this, args)
-            }, delay)
+            clearTimeout(timer)
         }
+        timer = setTimeout(() => {
+            result = func.apply(this, args)
+        }, delay)
+
+        return result
     }
 }

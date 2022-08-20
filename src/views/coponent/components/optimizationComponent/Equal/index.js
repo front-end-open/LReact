@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-20 19:49:30
+ * @LastEditTime: 2022-08-21 01:41:40
  * @Description:
  * @Date: 2022-08-20 19:13:31
  * @Author: wangshan
@@ -8,6 +8,8 @@
 import { Component, PureComponent } from 'react'
 
 import PropTypes from 'prop-types'
+
+import { debounce } from '@/utils/helper'
 class List extends PureComponent {
     static propTypes = {
         list: PropTypes.array,
@@ -60,6 +62,7 @@ const withList = (WrappedComponent) => {
             this.setState((pre) => {
                 let control = pre.control
                 control = {
+                    // 这里从新变更引用地址
                     ...control,
                     value: e.target.value
                 }
@@ -73,7 +76,7 @@ const withList = (WrappedComponent) => {
         handleClick() {
             console.log('add', this.state.list)
             this.setState((preState) => {
-                const list = preState.list
+                const list = [...preState.list] // 这里从新变更引用地址
                 list.push({ label: this.state.control.value })
 
                 return {
