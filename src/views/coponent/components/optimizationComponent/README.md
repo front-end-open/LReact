@@ -129,3 +129,22 @@ bar.a = 2
 -   使用 ts 类型校验
 -   约定命名规则，即 Immutable 对象统一使用$$开头的变量名
 -   使用 Immutable.fromJs 创建对象,而不是直接使用 Immutable 库内部 Map,list 等对象。
+
+**Immutable 数据比较**
+
+1. 值比较, 使用库内部 `is`API 做值比较。该 api 内部比较两个对象的`hashCode`和`valueOf`. Immutable 内部使用了 tries 数据结构来存储，只要两个对象`hashCode`相等，值就是一样的。这样避免了深度遍历比较，性能较好。
+2. 引用比较, 次用严格等于(===), 这中方式的比较是引用比较，即便两个对象值相等也会返回 false
+
+**Immutable Cursor**
+
+> 库提供供访问，深层引用的方法。由于此库所创建的对象数据结构，通常嵌套比较深。因此如果需要访问深层次数据可以通过此 api 来操作。
+
+**Immutable 与 PureRender**
+
+> React 性能优化最常用的就是`shouldComponentUpdate`方法，默认该方法返回 true,即始终会执行 render 方法，因此很多时候会执行不必要的渲染。
+
+> 可以通过深拷贝和深比较的方法来来确定是否需要重新渲染。但是这无疑会造成很大的性能浪费。
+
+**Immutable 与 setState 结合**
+
+> state 数据不可变更性
