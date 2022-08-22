@@ -148,3 +148,17 @@ bar.a = 2
 **Immutable 与 setState 结合**
 
 > state 数据不可变更性
+
+**关于 key 的使用**
+
+> key 的存在是用来做虚拟 dom 的 diff 比较用，为的是精准比较节点的更新。
+
+> 场景总结
+
+1. key 相同时，react 元素渲染方式，即渲染第一个匹配的节点。
+2. 如果两个子组件渲染时，我们没法设置 key。需要结合`react-addons-create-fragment`插件为官方早期对
+3. key 需要保证唯一性。不能使用随机值。
+
+**react-adddons-perf**
+
+> 自 v16 起，官方不在提供支持。使用 Profile-API 做性能分析。
