@@ -94,3 +94,16 @@ handleClick() {
 > 对于包含子组件的 react 组件，如果`shouldComponentUpdate`一直返回 true,那么将会导致子组件一直更新。
 
 > 解决方法： 在父组件中，做 props 比较，决定是否需要调用`shouldComponentUpdate`返回 true 来更新。
+
+### Immutable
+
+> 在传递数据时，使用 Immutable 来提升组件渲染性能.js 的对象一般是可变的，因为使用引用赋值后，原来的对象也会发生修改。
+
+```js
+let foo = { a: 1 }
+let bar = foo // 引用赋值foo
+// 修改bar.a = 2。此时,foo.a 同样被修改为 2
+bar.a = 2
+```
+
+> 对于这种可变行为，确实可以节约内存，但是会在应用内部造成安全隐患，导致数据的不明确性，造成数据污染。当然解决办法是可以通过深浅拷贝，来避免数据被污染。但拷贝也会造成 cpu 的内存浪费。
