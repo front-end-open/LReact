@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-07-28 22:27:55
+ * @LastEditTime: 2022-08-24 23:33:39
  * @Description: 路由配置
  * @Date: 2022-03-17 00:30:51
  * @Author: wangshan
@@ -132,6 +132,17 @@ let router = [
         menuname: 'JSX/DOM相关',
         component: AsyncComponent(
             import(/*webpackChunkName: "jsxdom"*/ '@/views/jsxdom/index')
+        ),
+        meta: {
+            isIndex: false
+        }
+    },
+    {
+        path: '/animation',
+        name: '动画',
+        menuname: '动画',
+        component: AsyncComponent(
+            import(/*webpackChunkName: "animation"*/ '@/views/Animation/index')
         ),
         meta: {
             isIndex: false

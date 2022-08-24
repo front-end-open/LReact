@@ -24,4 +24,6 @@
 3. componentWillEnter
 4. componentDitEnter
 5. componentWillLeave
-6. component
+6. componentDidLeave
+
+###
