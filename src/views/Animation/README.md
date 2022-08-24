@@ -25,25 +25,3 @@
 4. componentDitEnter
 5. componentWillLeave
 6. component
-
-configType: "vrbt"
-endNumber: 9
-isolated: "0"
-pageNumber: "1"
-pageSize: 50
-startNumber: 0
-
-configType: "vrbt"
-endNumber: 9
-isolated: "0"
-pageNumber: "2"
-pageSize: "50"
-startNumber: 0
-
-configType: "vrbt"
-endNumber: 9
-importSearch: true
-isolated: "0"
-pageNumber: "1"
-pageSize: 50
-startNumber: 0
