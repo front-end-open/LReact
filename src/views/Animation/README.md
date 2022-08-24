@@ -16,3 +16,34 @@
 **React-transition 监听节点变化方式**
 
 > 监听子组件的生命周期函数，当 React-transition 监听到子组件的添加和删除时,然后调用对应生命周期函数即可
+
+**相关生命周期**
+
+1. componentWillAppear
+2. componentDidAppear
+3. componentWillEnter
+4. componentDitEnter
+5. componentWillLeave
+6. component
+
+configType: "vrbt"
+endNumber: 9
+isolated: "0"
+pageNumber: "1"
+pageSize: 50
+startNumber: 0
+
+configType: "vrbt"
+endNumber: 9
+isolated: "0"
+pageNumber: "2"
+pageSize: "50"
+startNumber: 0
+
+configType: "vrbt"
+endNumber: 9
+importSearch: true
+isolated: "0"
+pageNumber: "1"
+pageSize: 50
+startNumber: 0
