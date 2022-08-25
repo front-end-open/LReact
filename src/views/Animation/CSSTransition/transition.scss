@@ -1,0 +1,27 @@
+/*
+ * @LastEditTime: 2022-08-26 01:37:58
+ * @Description:
+ * @Date: 2022-08-26 01:13:50
+ * @Author: wangshan
+ * @LastEditors: wangshan
+ */
+// .fade-appear,
+// .fade-appear-active,
+// .fade-appear-done {
+//     opacity: 0;
+//     font-size: 50px;
+// }
+.fade-enter {
+    opacity: 0;
+}
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+.fade-exit {
+    opacity: 1;
+}
+.fade-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+}
