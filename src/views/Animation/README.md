@@ -83,3 +83,15 @@ addEndListener={(node, done) => {
 -   `onExited` [type Function(node: HtmlElement) -> void] :应用`exited`状态后触发的回调。
 
 > 注意： 传递 nodeRef 属性时，不传递 node。
+
+### Css Transition
+
+> React Css Transition 为子组件每个生命周期添加了不同的`className`。这样用户可以很方便的根据 className 变化实现动画.
+
+> React-transition 对 css 动画专门做了封装处理. CSSTransition 在过渡的`appear`、`enter`和`exit`状态期间应用一对类名。 应用第一个类，然后应用第二个 `_-active` 类以激活 CSS 过渡。 转换之后，匹配的 `\_-done` 类名被应用以保持转换状态。
+
+> 当 in 属性设置为 true 时，子组件将首先接收类 example-enter，然后在下一个 tick 中添加 example-enter-active。 CSSTransition 在添加 example-enter-active 之前强制进行重排。 这是一个重要的技巧，因为它允许我们在 example-enter 和 example-enter-active 之间转换，即使它们是一个接一个地立即添加的。 最值得注意的是，这使我们可以为外观设置动画。
+
+> _-active 类表示您想要动画到哪些样式，因此仅向它们添加转换声明很重要，否则转换可能不会按预期运行！ 当转换是对称的时，这可能并不明显，即当 _-enter-active 与 \*-exit 相同时，如上面的示例（减去转换），但在更复杂的转换中变得明显。
+
+> 注意: 如果使用`appear`道具，确保为 `.appear-\*` 类定义样式。
