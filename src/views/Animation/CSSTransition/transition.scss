@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-26 01:37:58
+ * @LastEditTime: 2022-08-26 01:45:14
  * @Description:
  * @Date: 2022-08-26 01:13:50
  * @Author: wangshan
@@ -8,7 +8,7 @@
 // .fade-appear,
 // .fade-appear-active,
 // .fade-appear-done {
-//     opacity: 0;
+//     opacity: 1;
 //     font-size: 50px;
 // }
 .fade-enter {
@@ -16,12 +16,12 @@
 }
 .fade-enter-active {
     opacity: 1;
-    transition: opacity 200ms;
+    transition: opacity 500ms;
 }
 .fade-exit {
     opacity: 1;
 }
 .fade-exit-active {
     opacity: 0;
-    transition: opacity 200ms;
+    transition: opacity 500ms;
 }

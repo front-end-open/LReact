@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-26 01:41:09
+ * @LastEditTime: 2022-08-26 01:44:28
  * @Description:css-transition
  * @Date: 2022-08-26 01:06:34
  * @Author: wangshan
@@ -15,7 +15,7 @@ function ReactCssTransition({ in: inProp }) {
     return (
         <div>
             <CSSTransition
-                appear={false}
+                appear
                 in={inProp}
                 timeout={200}
                 unmountOnExit
