@@ -95,3 +95,46 @@ addEndListener={(node, done) => {
 > _-active 类表示您想要动画到哪些样式，因此仅向它们添加转换声明很重要，否则转换可能不会按预期运行！ 当转换是对称的时，这可能并不明显，即当 _-enter-active 与 \*-exit 相同时，如上面的示例（减去转换），但在更复杂的转换中变得明显。
 
 > 注意: 如果使用`appear`道具，确保为 `.appear-\*` 类定义样式。
+
+**Props**
+
+-   `classNames` [type: string | { appear?: string, appearActive?: string, appearDone?: string, enter?: string, enterActive?: string, enterDone?: string, exit?: string, exitActive?: string, exitDone?: string, }]
+
+> 使用 string 时: 组件会自动为每个阶段添加相应后缀(appear, enter, exit)
+
+```js
+// classNames={'fade'}
+
+// 应用结果
+fade - appear, fade - appear - active, fade - appear - done
+fade - enter, fade - enter - active, fade - enter - done
+fade - exit, fade - exit - active, fade - exit - done
+```
+
+> 关于如何应用这些类的一些细节需要注意
+
+1. 它们与子组件上已经定义的样式连接在一起，所以如果你想添加一些基本样式，你可以使用 className 而不必担心它会被覆盖。
+2. 如果转换组件以 in={false} 挂载，则尚未应用任何类。 您可能期待 \*-exit-done，但如果您考虑一下，如果组件尚未进入，它就无法完成退出。
+3. fade-appear-done 和 fade-enter-done 都将被应用。 这允许您使用 .fade-enter-done:not(.fade-appear-done) 之类的选择器定义出现完成时和常规输入完成时的不同行为。 例如，您可以使用 Animate.css 在元素首次出现在 DOM 时应用史诗般的入口动画。 否则，您可以简单地使用 fade-enter-done 来定义这两种情况。
+4. 每个单独的 classNames 也可以独立指定
+
+```js
+classNames={{
+ appear: 'my-appear',
+ appearActive: 'my-active-appear',
+ appearDone: 'my-done-appear',
+ enter: 'my-enter',
+ enterActive: 'my-active-enter',
+ enterDone: 'my-done-enter',
+ exit: 'my-exit',
+ exitActive: 'my-active-exit',
+ exitDone: 'my-done-exit',
+}}
+```
+
+-   `onEnter`: 在应用 'enter' 或 'appear' 类后立即触发 <Transition> 回调。
+-   `onEntering`: 在应用 'enter-active' 或 'appear-active' 类后立即触发 <Transition> 回调。
+-   `onEntered`: <Transition> 回调在 'enter' 或 'appear' 类被移除并将 done 类添加到 DOM 节点后立即触发。
+-   `onExit`: 在应用 'exit' 类后立即触发 <Transition> 回调。
+-   `onExiting`: 在应用 'exit-active' 后立即触发 <Transition> 回调。
+-   `onExited`: 在移除 'exit' 类并将 exit-done 类添加到 DOM 节点后立即触发 <Transition> 回调。
