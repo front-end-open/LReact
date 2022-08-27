@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-27 19:50:03
+ * @LastEditTime: 2022-08-27 19:54:08
  * @Description: 动画
  * @Date: 2022-08-24 23:32:46
  * @Author: wangshan
@@ -54,7 +54,8 @@ function Animation() {
                 <h2>TransitionGrounp</h2>
 
                 <TodoList>
-                    <TransitionGroup>
+                    {/* component 作为子组件外层包裹元素，默认是 div; 指定null,可取消使用div包裹 */}
+                    <TransitionGroup component={null}>
                         {list.map(({ id, text }) => {
                             return (
                                 <CSSTransition
