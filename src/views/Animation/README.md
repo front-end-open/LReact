@@ -138,3 +138,9 @@ classNames={{
 -   `onExit`: 在应用 'exit' 类后立即触发 <Transition> 回调。
 -   `onExiting`: 在应用 'exit-active' 后立即触发 <Transition> 回调。
 -   `onExited`: 在移除 'exit' 类并将 exit-done 类添加到 DOM 节点后立即触发 <Transition> 回调。
+
+### Transition Group
+
+> <TransitionGroup> 组件管理列表中的一组过渡组件（<Transition> 和 <CSSTransition>）。 与过渡组件一样，<TransitionGroup> 是一个状态机，用于随着时间的推移管理组件的安装和卸载。
+
+> 注意 <TransitionGroup> 没有定义任何动画行为！ 列表项的确切动画方式取决于各个转换组件。 这意味着您可以在不同的列表项中混合和匹配动画。
