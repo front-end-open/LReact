@@ -144,3 +144,21 @@ classNames={{
 > <TransitionGroup> 组件管理列表中的一组过渡组件（<Transition> 和 <CSSTransition>）。 与过渡组件一样，<TransitionGroup> 是一个状态机，用于随着时间的推移管理组件的安装和卸载。
 
 > 注意 <TransitionGroup> 没有定义任何动画行为！ 列表项的确切动画方式取决于各个转换组件。 这意味着您可以在不同的列表项中混合和匹配动画。
+
+**props**
+
+-   `component` [type any]: <TransitionGroup> 默认呈现一个 <div>。 您可以通过提供组件道具来更改此行为。 如果你使用 React v16+ 并且想要避免包装 <div> 元素，你可以传入 component={null}。 如果包装 div 破坏了您的 css 样式，这将很有用。
+
+-   `children` [type any]: 一系列`Transition`组件集合， 通过切换他们自身的`in`props 作为过渡状态的进出，期间`TransitionGroup`组件将会注入特定的过渡属性 props.如果对`Transition`或`CSSTransition`组件包装过，注意需要将他们返回，作为`TransitionGroup`的第一层元素。
+
+> 虽然此组件适用于多个 Transition 或 CSSTransition 子级，但有时可能希望拥有一个包含要在更改时转换出和转换入的内容（例如路由、图像等）的单个转换子级。在这种情况下，可以 在更改内容时更改过渡子项的 key prop，这将导致 TransitionGroup 将子项移出和移入。
+
+-   `appear` [type bool]: 为所有孩子启用或禁用`appear`动画的便利道具。 请注意，指定这将覆盖在单个子转换上设置的任何默认值。
+
+-   `enter` [type bool]: 为所有孩子启用或禁用`enter`动画的便利道具。 请注意，指定这将覆盖在单个子转换上设置的任何默认值。
+
+-   `exit` [type bool]: 一个方便的道具，可以为所有孩子启用或禁用 exit 动画。 请注意，指定这将覆盖在单个子转换上设置的任何默认值。
+
+-   `childFactory` [ type Function(child: ReactElement) -> ReactElement]: 可能需要在`children`进入到`exiting`时,对其应用响应式更新。 这通常是通过使用 cloneElement 来完成的，但是在现有子元素的情况下，该元素已经被删除并且消费者无法访问。
+
+> 如果确实需要在孩子`leave`时对其进行更新，可以提供一个 childFactory 来包装每个孩子，即使是那些正在离开的孩子。
