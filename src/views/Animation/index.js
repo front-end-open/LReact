@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-08-27 19:54:08
+ * @LastEditTime: 2022-08-29 00:41:48
  * @Description: 动画
  * @Date: 2022-08-24 23:32:46
  * @Author: wangshan
@@ -13,7 +13,9 @@ import { v4 as uuid } from 'uuid'
 
 import Fade from './base/Fade'
 import ReactCssTransition from './CSSTransition'
+import EasyingFunc from './EasyingFunc'
 import { TodoList, TodoItem } from './TransitionGroup/todo'
+
 import './TransitionGroup/itemainimation.scss'
 
 function Animation() {
@@ -96,6 +98,10 @@ function Animation() {
                 >
                     AddItem
                 </button>
+            </div>
+
+            <div>
+                <EasyingFunc />
             </div>
         </div>
     )
